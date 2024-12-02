@@ -245,7 +245,7 @@ static void writePlayerData() {
     }
 }
 
-// Function to write team data to a JSON file
+
 static void writeTeamData() {
     // Open or create the JSON file
     std::fstream file("team_data.json", std::ios::in | std::ios::out | std::ios::app);
