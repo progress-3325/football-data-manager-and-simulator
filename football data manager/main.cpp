@@ -40,8 +40,8 @@ static void writePlayerData() {
     int playerID = newID;
 
     // Prompt user for player data
-    std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate;
-    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots;
+    std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate;
+    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate;
     bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
     float playerHeight, playerWeight;
 
@@ -149,6 +149,64 @@ static void writePlayerData() {
     std::cout << "Enter player's Long Shots (1-100): ";
     std::cin >> longShots;
     std::cin.ignore();
+
+    std::cout << "Enter player's Defensive Work Rate (1-3): ";
+    std::cin >> defWorkRate;
+    std::cin.ignore();
+
+    std::cout << "Enter player's Offensive Work Rate (1-3): ";
+    std::cin >> offWorkRate;
+    std::cin.ignore();
+
+    if (defWorkRate == 1) {
+        if (offWorkRate == 1) {
+            workRate = "low/low";
+        }
+        else if (offWorkRate == 2) {
+            workRate = "low/mid";
+        }
+        else if (offWorkRate == 3) {
+            workRate = "low/high";
+        }
+        else {
+            std::cerr << "Invalid Offensive Work Rate number inserted";
+            return;
+        }
+    }
+    else if (defWorkRate == 2) {
+        if (offWorkRate == 1) {
+            workRate = "mid/low";
+        }
+        else if (offWorkRate == 2) {
+            workRate = "mid/mid";
+        }
+        else if (offWorkRate == 3) {
+            workRate = "mid/high";
+        }
+        else {
+            std::cerr << "Invalid Offensive Work Rate number inserted";
+            return;
+        }
+    }
+    else if (defWorkRate == 3) {
+        if (offWorkRate == 1) {
+            workRate = "high/low";
+        }
+        else if (offWorkRate == 2) {
+            workRate = "high/mid";
+        }
+        else if (offWorkRate == 3) {
+            workRate = "high/high";
+        }
+        else {
+            std::cerr << "Invalid Offensive Work Rate number inserted";
+            return;
+        }
+    }
+    else {
+        std::cerr << "Invalid Defensive Work Rate number inserted";
+        return;
+    }
 
     std::string position;
     if (playerPosition == "goalkeeper" || playerPosition == "Goalkeeper" || playerPosition == "GK") {
@@ -259,7 +317,8 @@ static void writePlayerData() {
         {"passing", passing},
         {"shooting", shooting},
         {"defending", defending},
-        {"physicality", physicality}    
+        {"physicality", physicality},
+        {"work_rate", workRate}
     };
 
     // Add the new player to the array
