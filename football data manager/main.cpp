@@ -8,7 +8,6 @@
 
 using json = nlohmann::json;
 
-// Function to write player data to a JSON file
 static void writePlayerData() {
     // Open or create the JSON file
     json playerDataArray;
@@ -41,8 +40,8 @@ static void writePlayerData() {
     int playerID = newID;
 
     // Prompt user for player data
-    std::string playerName, playerPosition;
-    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality;
+    std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate;
+    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning;
     bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
     float playerHeight, playerWeight;
 
@@ -52,6 +51,12 @@ static void writePlayerData() {
     std::cout << "Enter player's height (meters): ";
     std::cin >> playerHeight;
     std::cin.ignore();
+
+    std::cout << "Enter player's nationality: ";
+    getline(std::cin, playerNationality);
+
+    std::cout << "Enter player's date of birth: ";
+    getline(std::cin, dateOfBirth);
 
     std::cout << "Enter player's weight (kilograms): ";
     std::cin >> playerWeight;
@@ -109,25 +114,37 @@ static void writePlayerData() {
     std::cin >> pace;
     std::cin.ignore();
 
-    std::cout << "Enter the player's on ball skills (1-100): ";
+    std::cout << "Enter player's on ball skills (1-100): ";
     std::cin >> dribbling;
     std::cin.ignore();
 
-    std::cout << "Enter the player's passing/crossing accuracy (1-100): ";
+    std::cout << "Enter player's passing/crossing accuracy (1-100): ";
     std::cin >> passing;
     std::cin.ignore();
 
-    std::cout << "Enter the player's accuracy and power of a shot (1-100): ";
+    std::cout << "Enter player's accuracy and power of a shot (1-100): ";
     std::cin >> shooting;
     std::cin.ignore();
 
-    std::cout << "Enter the player's defending capabilities (1-100): ";
+    std::cout << "Enter player's defending capabilities (1-100): ";
     std::cin >> defending;
     std::cin.ignore();
 
-    std::cout << "Enter the player's strenght and stamina (1-100): ";
+    std::cout << "Enter player's strenght and stamina (1-100): ";
     std::cin >> physicality;
     std::cin.ignore();
+
+    std::cout << "Enter player's Composure (1-100): ";
+    std::cin >> composure;
+    std::cin.ignore();
+
+    std::cout << "Enter player's Vision (1-100): ";
+    std::cin >> vision;
+    std::cin.ignore();
+
+    std::cout << "Enter player's Positioning (1-100): ";
+    std::cin >> positioning;
+    std::cin.ignore();  
 
     std::string position;
     if (playerPosition == "goalkeeper" || playerPosition == "Goalkeeper" || playerPosition == "GK") {
@@ -211,6 +228,17 @@ static void writePlayerData() {
         playerRating = (pace * 0.15) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.3) + (defending * 0.05) + (physicality * 0.05);
     }
 
+    std::cout << "Enter player's Contract Expiry Date: ";
+    getline(std::cin, contractExpiryDate);
+
+    std::cout << "Enter player's Estimated Market Value: ";
+    std::cin >> playerValue;
+    std::cin.ignore();
+
+    std::cout << "Enter player's Wage: ";
+    std::cin >> playerWage;
+    std::cin.ignore();
+
     // Create a JSON object for the new player
     json newPlayer = {
         {"id", playerID},
@@ -244,7 +272,6 @@ static void writePlayerData() {
         std::cerr << "Error opening file for writing!" << std::endl;
     }
 }
-
 
 static void writeTeamData() {
     // Open or create the JSON file
