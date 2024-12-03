@@ -41,7 +41,7 @@ static void writePlayerData() {
 
     // Prompt user for player data
     std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate;
-    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning;
+    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots;
     bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
     float playerHeight, playerWeight;
 
@@ -144,7 +144,11 @@ static void writePlayerData() {
 
     std::cout << "Enter player's Positioning (1-100): ";
     std::cin >> positioning;
-    std::cin.ignore();  
+    std::cin.ignore();
+
+    std::cout << "Enter player's Long Shots (1-100): ";
+    std::cin >> longShots;
+    std::cin.ignore();
 
     std::string position;
     if (playerPosition == "goalkeeper" || playerPosition == "Goalkeeper" || playerPosition == "GK") {
@@ -255,7 +259,7 @@ static void writePlayerData() {
         {"passing", passing},
         {"shooting", shooting},
         {"defending", defending},
-        {"physicality", physicality}
+        {"physicality", physicality}    
     };
 
     // Add the new player to the array
