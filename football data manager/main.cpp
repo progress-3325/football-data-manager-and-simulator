@@ -1,8 +1,10 @@
 #include <iostream>
 #include "player_data.h"
 #include "team_data.h"
+#include <ctime>
 
 int main() {
+    srand(time(NULL));
     int choice;
 
     while (true) {

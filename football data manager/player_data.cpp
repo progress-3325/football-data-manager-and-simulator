@@ -2,11 +2,13 @@
 #include <fstream>
 #include "json.hpp"
 #include "player_data.h"
+#include <ctime>
 
 using json = nlohmann::json;
 
 void writePlayerData() {
     {
+        srand(time(NULL));
         // Open or create the JSON file
         json playerDataArray;
         std::ifstream inputFile("player_data.json");
@@ -39,7 +41,7 @@ void writePlayerData() {
 
         // Prompt user for player data
         std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate;
-        int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate;
+        int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate, teamID, aggression, penaltyShoot, setPiece, ballControl, stamina, injuryProne;
         bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
         float playerHeight, playerWeight;
 
@@ -52,6 +54,10 @@ void writePlayerData() {
 
         std::cout << "Enter player's nationality: ";
         getline(std::cin, playerNationality);
+
+        std::cout << "Enter ID of player's team: ";
+        std::cin >> teamID;
+        std::cin.ignore();
 
         std::cout << "Enter player's date of birth: ";
         getline(std::cin, dateOfBirth);
@@ -142,6 +148,10 @@ void writePlayerData() {
 
         std::cout << "Enter player's Positioning (1-100): ";
         std::cin >> positioning;
+        std::cin.ignore();
+
+        std::cout << "Enter player's aggression: ";
+        std::cin >> aggression;
         std::cin.ignore();
 
         std::cout << "Enter player's Long Shots (1-100): ";
@@ -298,6 +308,28 @@ void writePlayerData() {
         std::cout << "Enter player's Wage: ";
         std::cin >> playerWage;
         std::cin.ignore();
+
+        penaltyShoot = (shooting * .35) + (composure * .65);
+        setPiece = (passing * .55) + (composure * .45);
+        ballControl = (dribbling * .3) + (composure * .7);
+
+        int chance = rand() % 4;
+        if (chance == 0) {
+            stamina = physicality;
+        }
+        else if (chance == 1) {
+            stamina = physicality / 1.3;
+        }
+        else if (chance == 2) {
+            stamina = physicality / 1.6;
+        }
+        else if (chance == 3) {
+            stamina = physicality / 1.8;
+        }
+        else if (chance == 4) {
+            stamina = physicality / 2;
+        }
+        injuryProne = stamina - physicality + 100;
 
         // Create a JSON object for the new player
         json newPlayer = {
