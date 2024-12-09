@@ -4,8 +4,71 @@
 #include "player_data.h"
 #include <ctime>
 
+// player_data.cpp
+// adds the role of functions defined in "player_data.h"
+// with user input, creates a file with all the needed data
+// it can read "player_data.json" and properly organize it
+
+// progress-3325
+
 using json = nlohmann::json;
 
+// writePlayerData()
+// Purpose: 
+// Writes player data from user input and saves it into a .json file.
+// Inputs:
+// Questions will be asked, and the answers will go to the respective variables as values.
+// Example Input:
+// Enter player's name: Player A
+// Enter player's height (meters): 1.82
+// Enter player's nationality: Romania
+// Enter ID of player's team: 1
+// Enter player's date of birth: 6/6/2000
+// Enter player's weight (kilograms): 100
+// Enter player's position: Striker
+// Enter player's number: 15
+// Enter if the player is the captain(y / n) : y
+// Enter if the player can play with both feet(y / n) : y
+// Enter how fast the player is(1 - 100) : 100
+// Enter player's on ball skills (1-100): 100
+// Enter player's passing/crossing accuracy (1-100): 100
+// Enter player's accuracy and power of a shot (1-100): 100
+// Enter player's defending capabilities (1-100): 100
+// Enter player's strenght and stamina (1-100): 100
+// Enter player's Composure (1-100): 100
+// Enter player's Vision (1-100): 100
+// Enter player's Positioning (1-100): 100
+// Enter player's aggression: 100
+// Enter player's Long Shots (1-100): 100
+// Enter player's Defensive Work Rate (1-3): 3
+// Enter player's Offensive Work Rate (1-3): 3
+// Enter player's Contract Expiry Date: 7/7/2077
+// Enter player's Estimated Market Value: 196000000
+// Enter player's Wage: 1550000
+// Outputs: 
+// "player_data.json" file.
+// Example Output:
+// Player data saved to player_data.json
+// [
+// {
+//        "ambidextrous": true,
+//        "defending" : 100,
+//        "dribbling" : 100,
+//        "id" : 1,
+//        "is_captain" : true,
+//        "left_foot" : true,
+//        "name" : "Player A",
+//        "number" : 15,
+//        "pace" : 100,
+//        "passing" : 100,
+//        "physicality" : 100,
+//        "position" : "ST",
+//        "rating" : 100,
+//        "right_foot" : true,
+//        "shooting" : 100,
+//        "work_rate" : "high/high"
+// }
+// ]
 void writePlayerData() {
     {
         srand(time(NULL));
@@ -329,6 +392,7 @@ void writePlayerData() {
         else if (chance == 4) {
             stamina = physicality / 2;
         }
+        stamina = stamina;
         injuryProne = stamina - physicality + 100;
 
         // Create a JSON object for the new player
@@ -367,14 +431,33 @@ void writePlayerData() {
     }
 }
 
+// displayPlayerData()
+// Purpose:
+// Reads and organizes values from "player_data.json".
+// Input:
+// None
+// Output:
+// Contents of "player_data.json" in a set order by the script.
+// Example Output:
+// Player ID: 1
+// Player Name : "Player A"
+// Player Position : "ST"
+// Player Overall Rating : 100
+// Player Pace Rating : 100
+// Player Dribbling Rating : 100
+// Player Passing Rating : 100
+// Player Shooting Rating : 100
+// Player Defending Rating : 100
+// Player Physicality Rating : 100
+// Player Number : 15
 void displayPlayerData() {
-    std::ifstream file("player_data.json");
+    std::ifstream file("player_data.json"); // Get player data.
     if (!file.is_open()) {
         std::cerr << "Error opening the JSON file!" << std::endl;
         return;
-    }
+    } // If player data wasn't saved then the function process will end.
 
-    json playerDataArray;
+    json playerDataArray; // Defining the array.
     file >> playerDataArray;
     file.close();
 
@@ -396,5 +479,5 @@ void displayPlayerData() {
         std::cout << "Player Defending Rating: " << playerData["defending"] << std::endl;
         std::cout << "Player Physicality Rating: " << playerData["physicality"] << std::endl;
         std::cout << "Player Number: " << playerData["number"] << std::endl;
-    }
+    } // Reading player data.
 }

@@ -3,8 +3,22 @@
 #include "json.hpp"
 #include "team_data.h"
 
+// team_data.cpp
+// adds functionality to functions defined in team_data.h
+// using an external library, it makes functions create a .json file to store in multiple teams
+// it can also read .json files if it's according to its conditions
+
+// progress-3325
+
 using json = nlohmann::json;
 
+// writeTeamData()
+// Purpose:
+// Writes team data from input and then saves it to "team_data.json".
+// Inputs: 
+// Variables related to club information useful enough to be stored and used for future plans.
+// Outputs:
+// "team_data.json" file
 void writeTeamData() {
     {
         // Open or create the JSON file
@@ -38,15 +52,16 @@ void writeTeamData() {
             }
         }
 
+        // Defining club related variables
         bool nationalTeam;
         std::string clubName, clubHeadCoach, ultrasName, stadiumName, clubOwner;
         int teamID, clubYearFounded, leagueTitles, cupsWon, stadiumCapacity, squadSize, trainingFacilities, youthClubSquadMembers, youthClubRating, popularity;
         std::vector<int> rivalTeams;
         std::vector<std::string> clubColors;
 
-        teamID = newID;
+        teamID = newID; // Making the team's estimated ID its real one
 
-        std::string ynChoice;
+        std::string ynChoice; // Defining yes/no variable for booleans
         std::cout << "Is the club a national team? (y/n): ";
         getline(std::cin, ynChoice);
         if (ynChoice == "y" || ynChoice == "Y") {
@@ -56,6 +71,8 @@ void writeTeamData() {
             nationalTeam = false;
         }
 
+
+        // Row of setting a value to each variable
         std::cout << "Enter club's name: ";
         getline(std::cin, clubName);
 
@@ -125,7 +142,7 @@ void writeTeamData() {
         std::cin >> youthClubSquadMembers;
         std::cin.ignore();
 
-        std::cout << "What is the rating of the youth club (1-100) (1 would mean they are the weakest youth club in the country, basically a club for kindergartners, and 100 would mean on par with the first squad): ";
+        std::cout << "What is the rating of the youth club (1-100): ";
         std::cin >> youthClubRating;
         std::cin.ignore();
 
@@ -160,7 +177,15 @@ void writeTeamData() {
     }
 }
 
+// displayTeamData()
+// Purpose:
+// Reads contents of "team_data.json".
+// Input:
+// None.
+// Output:
+// All contents of "team_data.json" in a set order unlike the raw file.
 void displayTeamData() {
+    // Opening the saved file
     std::ifstream file("team_data.json");
     if (!file.is_open()) {
         std::cerr << "Error opening JSON file!" << std::endl;
@@ -175,7 +200,7 @@ void displayTeamData() {
         std::cerr << "Error: JSON data is not an array!" << std::endl;
         return;
     }
-
+    // Reading saved data from "team_data.json"
     for (const auto& teamData : teamDataArray) {
         std::cout << "---------------------------------" << std::endl;
         std::cout << "Team ID: " << teamData["id"] << std::endl;

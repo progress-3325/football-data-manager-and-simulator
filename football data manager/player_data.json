@@ -1,0 +1,20 @@
+[
+    {
+        "ambidextrous": true,
+        "defending": 100,
+        "dribbling": 100,
+        "id": 1,
+        "is_captain": true,
+        "left_foot": true,
+        "name": "Player A",
+        "number": 15,
+        "pace": 100,
+        "passing": 100,
+        "physicality": 100,
+        "position": "ST",
+        "rating": 100,
+        "right_foot": true,
+        "shooting": 100,
+        "work_rate": "high/high"
+    }
+]
