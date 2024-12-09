@@ -4,6 +4,7 @@
 #include "player_data.h"
 #include <ctime>
 #include <vector>
+#include <unordered_map>
 
 // player_data.cpp
 // adds the role of functions defined in "player_data.h"
@@ -108,6 +109,7 @@ void writePlayerData() {
         bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
         float playerHeight, playerWeight, morale, consistency, teamPlayer;
         std::vector<std::string> specialTraits;
+        std::unordered_map<std::string, int> positionVersatility;
 
         std::cout << "Enter player's name: ";
         getline(std::cin, playerName);
@@ -314,82 +316,3166 @@ void writePlayerData() {
         if (playerPosition == "goalkeeper" || playerPosition == "Goalkeeper" || playerPosition == "GK") {
             position = "GK";
             playerRating = (pace * .05) + (dribbling * .05) + (passing * .2) + (shooting * .05) + (defending * .3) + (physicality * .35);
+            
+
+            int posVersatility;
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+           
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos =  "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+            
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "center back" || playerPosition == "Center Back" || playerPosition == "CB") {
             position = "CB";
             playerRating = (pace * .15) + (dribbling * .1) + (passing * .15) + (shooting * .05) + (defending * .3) + (physicality * .25);
+
+
+            int posVersatility;
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "left back" || playerPosition == "Left Back" || playerPosition == "LB") {
             position = "LB";
             playerRating = (pace * .25) + (dribbling * .15) + (passing * .2) + (shooting * .05) + (defending * .25) + (physicality * .1);
+
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "right back" || playerPosition == "Right Back" || playerPosition == "RB") {
             position = "RB";
             playerRating = playerRating = (pace * .25) + (dribbling * .15) + (passing * .2) + (shooting * .05) + (defending * .25) + (physicality * .1);
+
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "light wing-back" || playerPosition == "Light Wing-Back" || playerPosition == "LWB") {
             position = "LWB";
             playerRating = (pace * .3) + (dribbling * .2) + (passing * .2) + (shooting * .05) + (defending * .15) + (physicality * .1);
+
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "right wing-back" || playerPosition == "Right Wing-Back" || playerPosition == "RWB") {
             position = "RWB";
             playerRating = (pace * .3) + (dribbling * .2) + (passing * .2) + (shooting * .05) + (defending * .15) + (physicality * .1);
+
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "sweeper" || playerPosition == "Sweeper" || playerPosition == "SW") {
             position = "SW";
             playerRating = (pace * .2) + (dribbling * .1) + (passing * .2) + (shooting * .05) + (defending * .35) + (physicality * .1);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "defensive midfielder" || playerPosition == "Defensive Midfielder" || playerPosition == "DM") {
             position = "DM";
             playerRating = (pace * .15) + (dribbling * .15) + (passing * .25) + (shooting * .05) + (defending * .3) + (physicality * .1);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "central defensive midfielder" || playerPosition == "Central Defensive Midfielder" || playerPosition == "CDM") {
             position = "CDM";
             playerRating = (pace * .15) + (dribbling * .2) + (passing * .25) + (shooting * .05) + (defending * .25) + (physicality * .1);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "central midfielder" || playerPosition == "Central Midfielder" || playerPosition == "CM") {
             position = "CM";
             playerRating = (pace * 0.15) + (dribbling * 0.2) + (passing * 0.3) + (shooting * 0.15) + (defending * 0.1) + (physicality * 0.1);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "left midfielder" || playerPosition == "Left Midfielder" || playerPosition == "LM") {
             position = "LM";
             playerRating = (pace * 0.25) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.15) + (defending * 0.05) + (physicality * 0.1);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "right midfielder" || playerPosition == "Right Midfielder" || playerPosition == "RM") {
             position = "RM";
             playerRating = (pace * 0.25) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.15) + (defending * 0.05) + (physicality * 0.1);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "central attacking midfielder" || playerPosition == "Central Attacking Midfielder" || playerPosition == "CAM") {
             position = "CAM";
             playerRating = (dribbling * 0.3) + (passing * 0.3) + (shooting * 0.2) + (pace * 0.1) + (physicality * 0.05) + (defending * 0.05);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "attacking midfielder" || playerPosition == "Attacking Midfielder" || playerPosition == "AM") {
             position = "AM";
             playerRating = (dribbling * 0.3) + (passing * 0.3) + (shooting * 0.2) + (pace * 0.1) + (physicality * 0.05) + (defending * 0.05);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "wide midfielder" || playerPosition == "Wide Midfielder" || playerPosition == "W") {
             position = "W";
             playerRating = (pace * 0.25) + (dribbling * 0.25) + (passing * 0.25) + (shooting * 0.1) + (defending * 0.1) + (physicality * 0.05);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "center forward" || playerPosition == "Center Forward" || playerPosition == "CF") {
             position = "CF";
             playerRating = (pace * 0.15) + (dribbling * 0.2) + (passing * 0.1) + (shooting * 0.4) + (defending * 0.05) + (physicality * 0.1);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "striker" || playerPosition == "Striker" || playerPosition == "ST") {
             position = "ST";
             playerRating = (pace * 0.2) + (dribbling * 0.15) + (passing * 0.05) + (shooting * 0.5) + (defending * 0.01) + (physicality * 0.09);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "left winger" || playerPosition == "Left Winger" || playerPosition == "LW") {
             position = "LW";
             playerRating = (pace * 0.2) + (dribbling * 0.15) + (passing * 0.05) + (shooting * 0.5) + (defending * 0.01) + (physicality * 0.09);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "right winger" || playerPosition == "Right Winger" || playerPosition == "RW") {
             position = "RW";
             playerRating = (pace * 0.2) + (dribbling * 0.15) + (passing * 0.05) + (shooting * 0.5) + (defending * 0.01) + (physicality * 0.09);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Second Striker Position (1-100): ";
+            std::string tempPos = "Second Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
         else if (playerPosition == "second striker" || playerPosition == "Second Striker" || playerPosition == "SS") {
             position = "SS";
             playerRating = (pace * 0.15) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.3) + (defending * 0.05) + (physicality * 0.05);
+
+            int posVersatility;
+
+            std::cout << "Enter Player Versatility for a GoalKeeper Position (1-100): ";
+            std::string tempPos = "GoalKeeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Back Position (1-100): ";
+            std::string tempPos = "Center Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Back Position (1-100): ";
+            std::string tempPos = "Left Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Back Position (1-100): ";
+            std::string tempPos = "Right Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Wing-Back Position (1-100): ";
+            std::string tempPos = "Left Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Wing-Back Position (1-100): ";
+            std::string tempPos = "Right Wing-Back";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Sweeper Position (1-100): ";
+            std::string tempPos = "Sweeper";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Defensive Midfielder Position (1-100): ";
+            std::string tempPos = "Central Defensive Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Midfielder Position (1-100): ";
+            std::string tempPos = "Central Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Midfielder Position (1-100): ";
+            std::string tempPos = "Left Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Midfielder Position (1-100): ";
+            std::string tempPos = "Right Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Central Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Central Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a  Attacking Midfielder Position (1-100): ";
+            std::string tempPos = "Attacking Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Wide Midfielder Position (1-100): ";
+            std::string tempPos = "Wide Midfielder";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Center Forward Position (1-100): ";
+            std::string tempPos = "Center Forward";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Left Winger Position (1-100): ";
+            std::string tempPos = "Left Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Right Winger Position (1-100): ";
+            std::string tempPos = "Right Winger";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
+
+            std::cout << "Enter Player Versatility for a Striker Position (1-100): ";
+            std::string tempPos = "Striker";
+
+            std::cin >> posVersatility;
+            std::cin.ignore();
+
+            positionVersatility[tempPos] = posVersatility;
         }
 
         int prefRole;
@@ -549,8 +3635,11 @@ void writePlayerData() {
             {"weight", playerWeight}, // done
             {"consistency", consistency}, // done
             {"morale", morale}, // done
-            {"team_player", teamPlayer} // done
+            {"team_player", teamPlayer}, // done
+            {"versatility", positionVersatility}
         };
+
+
 
         // Add the new player to the array
         playerDataArray.push_back(newPlayer);
