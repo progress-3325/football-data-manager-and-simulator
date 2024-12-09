@@ -3,12 +3,12 @@
 #include "json.hpp"
 #include "player_data.h"
 #include <ctime>
+#include <vector>
 
 // player_data.cpp
 // adds the role of functions defined in "player_data.h"
 // with user input, creates a file with all the needed data
 // it can read "player_data.json" and properly organize it
-
 // progress-3325
 
 using json = nlohmann::json;
@@ -103,10 +103,11 @@ void writePlayerData() {
         int playerID = newID;
 
         // Prompt user for player data
-        std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate;
-        int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate, teamID, aggression, penaltyShoot, setPiece, ballControl, stamina, injuryProne;
+        std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate, prefferedRole;
+        int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate, teamID, aggression, penaltyShoot, setPiece, ballControl, stamina{}, injuryProne, matchesPlayed, goalsScored, assists, cleanSheets, tacklesWon, passingAccuracy, shotsOnTarget, specialTraitsNum, potentialRating, trainingWorkRate, clutchFactor;
         bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
-        float playerHeight, playerWeight;
+        float playerHeight, playerWeight, morale, consistency, teamPlayer;
+        std::vector<std::string> specialTraits;
 
         std::cout << "Enter player's name: ";
         getline(std::cin, playerName);
@@ -229,6 +230,10 @@ void writePlayerData() {
         std::cin >> offWorkRate;
         std::cin.ignore();
 
+        std::cout << "Enter player's Training Work Rate (1-3): ";
+        std::cin >> trainingWorkRate;
+        std::cin.ignore();
+
         if (defWorkRate == 1) {
             if (offWorkRate == 1) {
                 workRate = "low/low";
@@ -278,6 +283,32 @@ void writePlayerData() {
             std::cerr << "Invalid Defensive Work Rate number inserted";
             return;
         }
+
+        std::string trainingWR;
+        if (trainingWorkRate == 1) {
+            trainingWR = "Low";
+        }
+        else if (trainingWorkRate == 2) {
+            trainingWR = "Mid";
+        }
+        else if (trainingWorkRate == 3) {
+            trainingWR = "High";
+        }
+
+        std::cout << "Enter how many special traits the player has: ";
+        std::cin >> specialTraitsNum;
+        std::cin.ignore();
+
+        for (int i = 0; i < specialTraitsNum; i++) {
+            std::string specialTraitName;
+            std::cout << "Enter special trait name " << i + 1 << ": ";
+            getline(std::cin, specialTraitName);
+            specialTraits.push_back(specialTraitName);
+        }
+
+        std::cout << "Enter player's Potential Rating: ";
+        std::cin >> potentialRating;
+        std::cin.ignore();
 
         std::string position;
         if (playerPosition == "goalkeeper" || playerPosition == "Goalkeeper" || playerPosition == "GK") {
@@ -361,6 +392,28 @@ void writePlayerData() {
             playerRating = (pace * 0.15) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.3) + (defending * 0.05) + (physicality * 0.05);
         }
 
+        int prefRole;
+        std::cout << "Enter player's preffered role (1-5): ";
+        std::cin >> prefRole;
+        std::cin.ignore();
+
+        if (prefRole == 1) {
+            prefferedRole = "Bench Warmer";
+        }
+        else if (prefRole == 2) {
+            prefferedRole = "Substitute";
+        }
+        else if (prefRole == 3) {
+            prefferedRole = "Rotation";
+        }
+        else if (prefRole == 4) {
+            prefferedRole = "Starter";
+        }
+        else if (prefRole == 5) {
+            prefferedRole = "Crucial";
+        }
+
+
         std::cout << "Enter player's Contract Expiry Date: ";
         getline(std::cin, contractExpiryDate);
 
@@ -372,9 +425,58 @@ void writePlayerData() {
         std::cin >> playerWage;
         std::cin.ignore();
 
+        std::cout << "Enter player's matches played number: ";
+        std::cin >> matchesPlayed;
+        std::cin.ignore();
+
+        std::cout << "Enter player's goals scored number: ";
+        std::cin >> goalsScored;
+        std::cin.ignore();
+
+        std::cout << "Enter player's assist number: ";
+        std::cin >> assists;
+        std::cin.ignore();
+
+        std::cout << "Enter player's clean sheets number: ";
+        std::cin >> cleanSheets;
+        std::cin.ignore();
+
+        std::cout << "Enter player's amount of won tackles: ";
+        std::cin >> tacklesWon;
+        std::cin.ignore();
+
+        std::cout << "Enter player's passing accuracy: ";
+        std::cin >> passingAccuracy;
+        std::cin.ignore();
+
+        std::cout << "Enter player's shots on target amoubt: ";
+        std::cin >> shotsOnTarget;
+        std::cin.ignore();
+
+        if (shotsOnTarget > goalsScored) {
+            std::cerr << "There has been an error when counting goals and shots on target!!!";
+            return;
+        }
+
+        std::cout << "Enter how Clutch the player is: ";
+        std::cin >> clutchFactor;
+        std::cin.ignore();
+
         penaltyShoot = (shooting * .35) + (composure * .65);
         setPiece = (passing * .55) + (composure * .45);
         ballControl = (dribbling * .3) + (composure * .7);
+
+        std::cout << "Enter player's morale: ";
+        std::cin >> morale;
+        std::cin.ignore();
+
+        std::cout << "Enter player's consistency: ";
+        std::cin >> consistency;
+        std::cin.ignore();
+
+        std::cout << "Enter the chance of the player to be unselfish in a situation: ";
+        std::cin >> teamPlayer;
+        std::cin.ignore();
 
         int chance = rand() % 4;
         if (chance == 0) {
@@ -392,27 +494,62 @@ void writePlayerData() {
         else if (chance == 4) {
             stamina = physicality / 2;
         }
-        stamina = stamina;
         injuryProne = stamina - physicality + 100;
 
         // Create a JSON object for the new player
         json newPlayer = {
-            {"id", playerID},
-            {"name", playerName},
-            {"rating", playerRating},
-            {"position", position},
-            {"number", playerNumber},
-            {"is_captain", playerIsCaptain},
-            {"ambidextrous", playerIsAmbidextrous},
-            {"right_foot", rightFoot},
-            {"left_foot", leftFoot},
-            {"pace", pace},
-            {"dribbling", dribbling},
-            {"passing", passing},
-            {"shooting", shooting},
-            {"defending", defending},
-            {"physicality", physicality},
-            {"work_rate", workRate}
+            {"id", playerID}, // done
+            {"name", playerName}, // done
+            {"rating", playerRating}, // done
+            {"position", position}, // done
+            {"number", playerNumber}, // done
+            {"is_captain", playerIsCaptain}, // done
+            {"ambidextrous", playerIsAmbidextrous}, // done
+            {"right_foot", rightFoot}, // done
+            {"left_foot", leftFoot}, // done
+            {"pace", pace}, // done
+            {"dribbling", dribbling}, // done
+            {"passing", passing}, // done
+            {"shooting", shooting}, // done
+            {"defending", defending}, // done
+            {"physicality", physicality}, // done
+            {"work_rate", workRate}, // done
+            {"nationality", playerNationality}, // done
+            {"date_of_birth", dateOfBirth}, // done
+            {"contract_expiry_date", contractExpiryDate}, // done
+            {"work_rate", workRate}, // done
+            {"preffered_role", prefferedRole}, // done
+            {"value", playerValue}, // done
+            {"wage", playerWage}, // done
+            {"composure", composure}, // done
+            {"vision", vision}, // done
+            {"positioning", positioning}, // done
+            {"shooting", longShots}, // done
+            {"defensive_work_rate", defWorkRate}, // done
+            {"offensive_work_rate", offWorkRate}, // done
+            {"team_id", teamID}, // done
+            {"aggression", aggression}, // done
+            {"penalty", penaltyShoot}, // done
+            {"set_pieces", setPiece}, // done
+            {"ball_control", ballControl}, // done
+            {"stamina", stamina}, // done
+            {"injury_prone", injuryProne},
+            {"appearences", matchesPlayed},
+            {"goals", goalsScored},
+            {"assists", assists},
+            {"clean_sheets", cleanSheets},
+            {"tackles", tacklesWon},
+            {"shots_on_target", shotsOnTarget},
+            {"passing_accuracy", passingAccuracy},
+            {"special_traits", specialTraits}, // done
+            {"potential", potentialRating}, // done
+            {"training", trainingWorkRate}, // done
+            {"clutch_factor", clutchFactor},
+            {"height", playerHeight}, // done
+            {"weight", playerWeight}, // done
+            {"consistency", consistency}, // done
+            {"morale", morale}, // done
+            {"team_player", teamPlayer} // done
         };
 
         // Add the new player to the array
@@ -468,9 +605,27 @@ void displayPlayerData() {
 
     for (const auto& playerData : playerDataArray) {
         std::cout << "---------------------------------" << std::endl;
+        std::cout << "Team ID: " << playerData["team_id"] << std::endl;
         std::cout << "Player ID: " << playerData["id"] << std::endl;
         std::cout << "Player Name: " << playerData["name"] << std::endl;
+        std::cout << "Player Height: " << playerData["height"] << std::endl;
+        std::cout << "Player Weight: " << playerData["weight"] << std::endl;
+        std::cout << "Player Nationality: " << playerData["nationality"] << std::endl;
+        std::cout << "Player Birthday: " << playerData["date_of_birth"] << std::endl;
         std::cout << "Player Position: " << playerData["position"] << std::endl;
+        std::cout << "Player Number: " << playerData["number"] << std::endl;
+        std::cout << "Player Is Captain? " << playerData["is_captain"] << std::endl;
+        if (playerData["ambidextrous"] == true) {
+            std::cout << "Player Is Ambidextrous? " << playerData["ambidextrous"] << std::endl;
+        }
+        else if (playerData["right_foot"] == true) {
+            std::cout << "Player Is Ambidextrous? " << playerData["ambidextrous"] << std::endl;
+            std::cout << "Player Is Right Footed" << std::endl;
+        }
+        else if (playerData["left_foot"] == true) {
+            std::cout << "Player Is Ambidextrous? " << playerData["ambidextrous"] << std::endl;
+            std::cout << "Player Is Left Footed" << std::endl;
+        }
         std::cout << "Player Overall Rating: " << playerData["rating"] << std::endl;
         std::cout << "Player Pace Rating: " << playerData["pace"] << std::endl;
         std::cout << "Player Dribbling Rating: " << playerData["dribbling"] << std::endl;
@@ -478,6 +633,28 @@ void displayPlayerData() {
         std::cout << "Player Shooting Rating: " << playerData["shooting"] << std::endl;
         std::cout << "Player Defending Rating: " << playerData["defending"] << std::endl;
         std::cout << "Player Physicality Rating: " << playerData["physicality"] << std::endl;
-        std::cout << "Player Number: " << playerData["number"] << std::endl;
+        std::cout << "Player Composure Rating: " << playerData["composure"] << std::endl;
+        std::cout << "Player Vision Rating: " << playerData["vision"] << std::endl;
+        std::cout << "Player Positioning Rating: " << playerData["positioning"] << std::endl;
+        std::cout << "Player Shooting Rating: " << playerData["shooting"] << std::endl;
+        std::cout << "Player Aggression Rating" << playerData["aggression"] << std::endl;
+        std::cout << "Player Penalty Rating: " << playerData["penalty"] << std::endl;
+        std::cout << "Player Set Pieces Rating: " << playerData["set_pieces"] << std::endl;
+        std::cout << "Player Ball Control Rating: " << playerData["ball_control"] << std::endl;
+        std::cout << "Player Stamina Rating: " << playerData["stamina"] << std::endl;
+        std::cout << "Player Special Traits: ";
+        for (const auto& trait : playerData["special_traits"]) {
+            std::cout << trait << " ";
+        }
+        std::cout << "Player Defensive and Offensive Work Rate: " << playerData["work_rate"] << std::endl;
+        std::cout << "Player Training Work Rate: " << playerData["training"] << std::endl;
+        std::cout << "Player Potential Rating: " << playerData["potential"] << std::endl;
+        std::cout << "Contract Expiry Date: " << playerData["contract_expiry_date"] << std::endl;
+        std::cout << "Player Preffered Role: " << playerData["preffered_role"] << std::endl;
+        std::cout << "Player Value: " << playerData["value"] << std::endl;
+        std::cout << "Player Wage: " << playerData["wage"] << std::endl;
+        std::cout << "Player Morale: " << playerData["morale"] << std::endl;
+        std::cout << "Player Consistency: " << playerData["morale"] << std::endl;
+        std::cout << "Player Unselfishness: " << playerData["team_player"] << std::endl;
     } // Reading player data.
 }
