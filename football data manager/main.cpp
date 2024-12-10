@@ -2,10 +2,13 @@
 #include "player_data.h"
 #include "team_data.h"
 #include <ctime>
+#include "version.h"
 
 int main() {
     srand(time(NULL));
     int choice;
+
+    std::cout << "Project Version: " << PROJECT_VERSION << std::endl;
 
     while (true) {
         // Display the menu to the user
