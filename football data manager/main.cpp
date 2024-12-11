@@ -35,6 +35,18 @@ int main() {
             break;
         case 4:
             displayTeamData();
+            std::cout << "1. Display all players of a team\n";
+            std::cout << "2. Go Back\n";
+            std::cout << "Enter your choice: ";
+            std::cin >> choice;
+            std::cin.ignore();
+            switch (choice) {
+            case 1:
+                displayTeamPlayersData();
+                break;
+            case 2:
+                break;
+            }
             break;
         case 5:
             std::cout << "Exiting program...\n";

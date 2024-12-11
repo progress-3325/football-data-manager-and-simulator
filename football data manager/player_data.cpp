@@ -477,7 +477,7 @@ void writePlayerData() {
         std::cin >> shotsOnTarget;
         std::cin.ignore();
 
-        if (shotsOnTarget > goalsScored) {
+        if (shotsOnTarget < goalsScored) {
             std::cerr << "There has been an error when counting goals and shots on target!!!";
             return;
         }
@@ -578,8 +578,8 @@ void writePlayerData() {
             {"weight", playerWeight}, // done
             {"consistency", consistency}, // done
             {"morale", morale}, // done
-            {"team_player", teamPlayer},
-            {"versatility", versatilityJson}
+            {"team_player", teamPlayer}, // done
+            {"versatility", versatilityJson} // done
         };
 
 
