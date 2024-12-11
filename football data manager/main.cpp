@@ -3,13 +3,21 @@
 #include "team_data.h"
 #include <ctime>
 #include "version.h"
+#include <windows.h>
+
+void setColor(int textColor, int backgroundColor) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, textColor | (backgroundColor << 4));
+}
 
 int main() {
     srand(time(NULL));
     int choice;
 
+    setColor(10, 0);
     std::cout << "Project Version: " << PROJECT_VERSION << std::endl;
 
+    setColor(4, 0);
     while (true) {
         // Display the menu to the user
         std::cout << "\nMenu:\n";
@@ -36,7 +44,8 @@ int main() {
         case 4:
             displayTeamData();
             std::cout << "1. Display all players of a team\n";
-            std::cout << "2. Go Back\n";
+            std::cout << "2. Display all players of a nationality\n";
+            std::cout << "3. Go Back\n";
             std::cout << "Enter your choice: ";
             std::cin >> choice;
             std::cin.ignore();
@@ -45,6 +54,9 @@ int main() {
                 displayTeamPlayersData();
                 break;
             case 2:
+                displayNationalityPlayersData();
+                break;
+            case 3:
                 break;
             }
             break;

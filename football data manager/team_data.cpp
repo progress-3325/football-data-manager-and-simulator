@@ -34,32 +34,12 @@ void writeTeamData() {
         }
         file.close();
 
-        // Find the smallest available ID
-        std::vector<int> existingIDs;
-        for (const auto& team : teamData) {
-            if (team.contains("id")) {
-                existingIDs.push_back(team["id"].get<int>());
-            }
-        }
-        int newID = 1;
-        sort(existingIDs.begin(), existingIDs.end());
-        for (int id : existingIDs) {
-            if (id == newID) {
-                ++newID;
-            }
-            else {
-                break;
-            }
-        }
-
         // Defining club related variables
         bool nationalTeam;
         std::string clubName, clubHeadCoach, ultrasName, stadiumName, clubOwner;
         int teamID, clubYearFounded, leagueTitles, cupsWon, stadiumCapacity, squadSize, trainingFacilities, youthClubSquadMembers, youthClubRating, popularity;
         std::vector<int> rivalTeams;
         std::vector<std::string> clubColors;
-
-        teamID = newID; // Making the team's estimated ID its real one
 
         std::string ynChoice; // Defining yes/no variable for booleans
         std::cout << "Is the club a national team? (y/n): ";
@@ -69,6 +49,29 @@ void writeTeamData() {
         }
         else if (ynChoice == "n" || ynChoice == "N") {
             nationalTeam = false;
+        }
+
+        if (!nationalTeam) {
+            // Find the smallest available ID
+            std::vector<int> existingIDs;
+            for (const auto& team : teamData) {
+                if (team.contains("id")) {
+                    existingIDs.push_back(team["id"].get<int>());
+                }
+            }
+            int newID = 1;
+            sort(existingIDs.begin(), existingIDs.end());
+            for (int id : existingIDs) {
+                if (id == newID) {
+                    ++newID;
+                }
+                else {
+                    break;
+                }
+            }
+
+            teamID = newID; // Making the team's estimated ID its real one
+
         }
 
 
@@ -101,6 +104,7 @@ void writeTeamData() {
         int numRivalries;
         std::cout << "Enter number of rival teams: ";
         std::cin >> numRivalries;
+        std::cin.ignore();
 
         for (int i = 0; i < numRivalries; i++) {
             int rivalryId;
@@ -146,34 +150,66 @@ void writeTeamData() {
         std::cin >> youthClubRating;
         std::cin.ignore();
 
-        // Create a JSON object and populate it with the team data
-        json newTeam = {
-            {"id", teamID},
-            {"national_team", nationalTeam},
-            {"name", clubName},
-            {"head_coach", clubHeadCoach},
-            {"year_founded", clubYearFounded},
-            {"club_owner", clubOwner},
-            {"club_color(s)", clubColors},
-            {"league_titles", leagueTitles},
-            {"national_cup_titles", cupsWon},
-            {"squad_size", squadSize},
-            {"training_facilities_rating", trainingFacilities},
-            {"rival_teams", rivalTeams},
-            {"fans_name", ultrasName},
-            {"stadium_name", stadiumName},
-            {"stadium_capacity", stadiumCapacity},
-            {"youth_club_rating", youthClubRating},
-            {"youth_club_members", youthClubSquadMembers},
-            {"popularity", popularity}
-        };
+        if (!nationalTeam) {
 
-        teamData.push_back(newTeam);
-        std::ofstream outFile("team_data.json");
-        outFile << teamData.dump(4); // Pretty-print with 4-space indentation
-        outFile.close();
+            // Create a JSON object and populate it with the team data
+            json newTeam = {
+                {"id", teamID},
+                {"national_team", nationalTeam},
+                {"name", clubName},
+                {"head_coach", clubHeadCoach},
+                {"year_founded", clubYearFounded},
+                {"club_owner", clubOwner},
+                {"club_color(s)", clubColors},
+                {"league_titles", leagueTitles},
+                {"national_cup_titles", cupsWon},
+                {"squad_size", squadSize},
+                {"training_facilities_rating", trainingFacilities},
+                {"rival_teams", rivalTeams},
+                {"fans_name", ultrasName},
+                {"stadium_name", stadiumName},
+                {"stadium_capacity", stadiumCapacity},
+                {"youth_club_rating", youthClubRating},
+                {"youth_club_members", youthClubSquadMembers},
+                {"popularity", popularity}
+            };
 
-        std::cout << "Team added with ID: " << newID << std::endl;
+            teamData.push_back(newTeam);
+            std::ofstream outFile("team_data.json");
+            outFile << teamData.dump(4); // Pretty-print with 4-space indentation
+            outFile.close();
+
+            std::cout << "Team added with ID: " << teamID << std::endl;
+        }
+        else if (nationalTeam) {
+            json newTeam = {
+                {"national_team", nationalTeam},
+                {"name", clubName},
+                {"head_coach", clubHeadCoach},
+                {"year_founded", clubYearFounded},
+                {"club_owner", clubOwner},
+                {"club_color(s)", clubColors},
+                {"league_titles", leagueTitles},
+                {"national_cup_titles", cupsWon},
+                {"squad_size", squadSize},
+                {"training_facilities_rating", trainingFacilities},
+                {"rival_teams", rivalTeams},
+                {"fans_name", ultrasName},
+                {"stadium_name", stadiumName},
+                {"stadium_capacity", stadiumCapacity},
+                {"youth_club_rating", youthClubRating},
+                {"youth_club_members", youthClubSquadMembers},
+                {"popularity", popularity}
+            };
+
+            teamData.push_back(newTeam);
+            std::ofstream outFile("team_data.json");
+            outFile << teamData.dump(4); // Pretty-print with 4-space indentation
+            outFile.close();
+        }
+        else {
+            std::cerr << "Error while saving teamData";
+        }
     }
 }
 
@@ -254,6 +290,94 @@ void displayTeamPlayersData() {
 
     std::cout << "\nPlayers in Team ID " << selectedTeamID << ":\n";
     for (const auto& playerData : playerDataArray) {
+        if (playerData["team_id"] == selectedTeamID) {
+            std::cout << "---------------------------------" << std::endl;
+            std::cout << "Team ID: " << playerData["team_id"] << std::endl;
+            std::cout << "Player ID: " << playerData["id"] << std::endl;
+            std::cout << "Player Name: " << playerData["name"] << std::endl;
+            std::cout << "Player Height: " << playerData["height"] << std::endl;
+            std::cout << "Player Weight: " << playerData["weight"] << std::endl;
+            std::cout << "Player Nationality: " << playerData["nationality"] << std::endl;
+            std::cout << "Player Birthday: " << playerData["date_of_birth"] << std::endl;
+            std::cout << "Player Position: " << playerData["position"] << std::endl;
+            std::cout << "Player Number: " << playerData["number"] << std::endl;
+            std::cout << "Player Is Captain? " << playerData["is_captain"] << std::endl;
+            if (playerData["ambidextrous"] == true) {
+                std::cout << "Player Is Ambidextrous? " << playerData["ambidextrous"] << std::endl;
+            }
+            else if (playerData["right_foot"] == true) {
+                std::cout << "Player Is Ambidextrous? " << playerData["ambidextrous"] << std::endl;
+                std::cout << "Player Is Right Footed" << std::endl;
+            }
+            else if (playerData["left_foot"] == true) {
+                std::cout << "Player Is Ambidextrous? " << playerData["ambidextrous"] << std::endl;
+                std::cout << "Player Is Left Footed" << std::endl;
+            }
+            std::cout << "Player Overall Rating: " << playerData["rating"] << std::endl;
+            std::cout << "Player Pace Rating: " << playerData["pace"] << std::endl;
+            std::cout << "Player Dribbling Rating: " << playerData["dribbling"] << std::endl;
+            std::cout << "Player Passing Rating: " << playerData["passing"] << std::endl;
+            std::cout << "Player Shooting Rating: " << playerData["shooting"] << std::endl;
+            std::cout << "Player Defending Rating: " << playerData["defending"] << std::endl;
+            std::cout << "Player Physicality Rating: " << playerData["physicality"] << std::endl;
+            std::cout << "Player Composure Rating: " << playerData["composure"] << std::endl;
+            std::cout << "Player Vision Rating: " << playerData["vision"] << std::endl;
+            std::cout << "Player Positioning Rating: " << playerData["positioning"] << std::endl;
+            std::cout << "Player Shooting Rating: " << playerData["shooting"] << std::endl;
+            std::cout << "Player Aggression Rating" << playerData["aggression"] << std::endl;
+            std::cout << "Player Penalty Rating: " << playerData["penalty"] << std::endl;
+            std::cout << "Player Set Pieces Rating: " << playerData["set_pieces"] << std::endl;
+            std::cout << "Player Ball Control Rating: " << playerData["ball_control"] << std::endl;
+            std::cout << "Player Stamina Rating: " << playerData["stamina"] << std::endl;
+            std::cout << "Player Special Traits: ";
+            for (const auto& trait : playerData["special_traits"]) {
+                std::cout << trait << " ";
+            }
+            std::cout << "Player Defensive and Offensive Work Rate: " << playerData["work_rate"] << std::endl;
+            std::cout << "Player Training Work Rate: " << playerData["training"] << std::endl;
+            std::cout << "Player Potential Rating: " << playerData["potential"] << std::endl;
+            std::cout << "Contract Expiry Date: " << playerData["contract_expiry_date"] << std::endl;
+            std::cout << "Player Preffered Role: " << playerData["preffered_role"] << std::endl;
+            std::cout << "Player Value: " << playerData["value"] << std::endl;
+            std::cout << "Player Wage: " << playerData["wage"] << std::endl;
+            std::cout << "Player Morale: " << playerData["morale"] << std::endl;
+            std::cout << "Player Consistency: " << playerData["morale"] << std::endl;
+            std::cout << "Player Unselfishness: " << playerData["team_player"] << std::endl;
+
+            // Display versatility values
+            std::cout << "Player Versatility:" << std::endl;
+            if (playerData.contains("versatility")) {
+                const json& versatility = playerData["versatility"];
+                for (const auto& [position, score] : versatility.items()) {
+                    std::cout << "  Position: " << position << ", Score: " << score << std::endl;
+                }
+            }
+            else {
+                std::cout << "  No versatility data available." << std::endl;
+            }
+        }
+        
+    }
+}
+
+void displayNationalityPlayersData() {
+    std::cout << "Enter Desired Nation Name: ";
+    int selectedNationName;
+    std::cin >> selectedNationName;
+
+    std::ifstream playerFile("player_data.json");
+    if (!playerFile.is_open()) {
+        std::cerr << "Error opening the player data file!" << std::endl;
+        return;
+    }
+
+    json playerDataArray;
+    playerFile >> playerDataArray;
+    playerFile.close();
+    
+    std::cout << "\nPlayers in Team ID " << selectedNationName << ":\n";
+    for (const auto& playerData : playerDataArray) {
+        if (playerData["nationality"] == selectedNationName)
         std::cout << "---------------------------------" << std::endl;
         std::cout << "Team ID: " << playerData["team_id"] << std::endl;
         std::cout << "Player ID: " << playerData["id"] << std::endl;
