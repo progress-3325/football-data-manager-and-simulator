@@ -20,57 +20,8 @@ using json = nlohmann::json;
 // Writes player data from user input and saves it into a .json file.
 // Inputs:
 // Questions will be asked, and the answers will go to the respective variables as values.
-// Example Input:
-// Enter player's name: Player A
-// Enter player's height (meters): 1.82
-// Enter player's nationality: Romania
-// Enter ID of player's team: 1
-// Enter player's date of birth: 6/6/2000
-// Enter player's weight (kilograms): 100
-// Enter player's position: Striker
-// Enter player's number: 15
-// Enter if the player is the captain(y / n) : y
-// Enter if the player can play with both feet(y / n) : y
-// Enter how fast the player is(1 - 100) : 100
-// Enter player's on ball skills (1-100): 100
-// Enter player's passing/crossing accuracy (1-100): 100
-// Enter player's accuracy and power of a shot (1-100): 100
-// Enter player's defending capabilities (1-100): 100
-// Enter player's strenght and stamina (1-100): 100
-// Enter player's Composure (1-100): 100
-// Enter player's Vision (1-100): 100
-// Enter player's Positioning (1-100): 100
-// Enter player's aggression: 100
-// Enter player's Long Shots (1-100): 100
-// Enter player's Defensive Work Rate (1-3): 3
-// Enter player's Offensive Work Rate (1-3): 3
-// Enter player's Contract Expiry Date: 7/7/2077
-// Enter player's Estimated Market Value: 196000000
-// Enter player's Wage: 1550000
 // Outputs: 
 // "player_data.json" file.
-// Example Output:
-// Player data saved to player_data.json
-// [
-// {
-//        "ambidextrous": true,
-//        "defending" : 100,
-//        "dribbling" : 100,
-//        "id" : 1,
-//        "is_captain" : true,
-//        "left_foot" : true,
-//        "name" : "Player A",
-//        "number" : 15,
-//        "pace" : 100,
-//        "passing" : 100,
-//        "physicality" : 100,
-//        "position" : "ST",
-//        "rating" : 100,
-//        "right_foot" : true,
-//        "shooting" : 100,
-//        "work_rate" : "high/high"
-// }
-// ]
 void writePlayerData() {
     srand(time(NULL));
     // Open or create the JSON file
@@ -607,17 +558,6 @@ void writePlayerData() {
 // Output:
 // Contents of "player_data.json" in a set order by the script.
 // Example Output:
-// Player ID: 1
-// Player Name : "Player A"
-// Player Position : "ST"
-// Player Overall Rating : 100
-// Player Pace Rating : 100
-// Player Dribbling Rating : 100
-// Player Passing Rating : 100
-// Player Shooting Rating : 100
-// Player Defending Rating : 100
-// Player Physicality Rating : 100
-// Player Number : 15
 void displayPlayerData() {
     std::ifstream file("player_data.json"); // Get player data.
     if (!file.is_open()) {
