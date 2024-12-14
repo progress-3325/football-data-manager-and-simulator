@@ -7,7 +7,6 @@
 // adds functionality to functions defined in team_data.h
 // using an external library, it makes functions create a .json file to store in multiple teams
 // it can also read .json files if it's according to its conditions
-
 // progress-3325
 
 using json = nlohmann::json;
