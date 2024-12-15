@@ -76,11 +76,13 @@
   <ItemGroup>
     <ClCompile Include="data_manager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="match_manager.cpp" />
     <ClCompile Include="player_data.cpp" />
     <ClCompile Include="team_data.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="data_manager.h" />
+    <ClInclude Include="match_manager.h" />
     <ClInclude Include="player_data.h" />
     <ClInclude Include="team_data.h" />
     <ClInclude Include="version.h" />
