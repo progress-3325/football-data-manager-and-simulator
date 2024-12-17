@@ -15,37 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\data_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="team_data.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="player_data.cpp">
+    <ClCompile Include="src\match_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="data_manager.cpp">
+    <ClCompile Include="src\player_data.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="match_manager.cpp">
+    <ClCompile Include="src\team_data.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="team_data.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="src\data_manager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="player_data.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="src\match_manager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="version.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="src\player_data.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="data_manager.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="src\team_data.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="match_manager.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="src\version.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

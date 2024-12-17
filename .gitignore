@@ -17,7 +17,9 @@
 mono_crash.*
 
 # Build results
-[Dd]ebug/
+*.obj
+football.8aa26d02
+[Dd]ebug/x64
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/

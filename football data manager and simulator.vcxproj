@@ -10,12 +10,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\data_manager.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\match_manager.cpp" />
+    <ClCompile Include="src\player_data.cpp" />
+    <ClCompile Include="src\team_data.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\data_manager.h" />
+    <ClInclude Include="src\match_manager.h" />
+    <ClInclude Include="src\player_data.h" />
+    <ClInclude Include="src\team_data.h" />
+    <ClInclude Include="src\version.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{8aa26d02-ee7a-4d42-861c-2690f9e8ba82}</ProjectGuid>
     <RootNamespace>footballdatamanager</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>football data manager simulator</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -49,7 +64,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Administrator\source\repos\football data manager\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Administrator\source\repos\progress-3325\football-data-manager-and-simulator\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -73,20 +88,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="data_manager.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="match_manager.cpp" />
-    <ClCompile Include="player_data.cpp" />
-    <ClCompile Include="team_data.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="data_manager.h" />
-    <ClInclude Include="match_manager.h" />
-    <ClInclude Include="player_data.h" />
-    <ClInclude Include="team_data.h" />
-    <ClInclude Include="version.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
