@@ -2,6 +2,10 @@
 #include <fstream>
 #include "json.hpp"
 #include "team_data.h"
+#include <string>
+#include <cstdlib>
+#include <random>
+#include <algorithm>
 
 // team_data.cpp
 // adds functionality to functions defined in team_data.h
@@ -10,6 +14,35 @@
 // progress-3325
 
 using json = nlohmann::json;
+
+
+std::string generateRandomString(bool national) {
+    std::string result;
+    int size = rand() % 21;
+    if (size <= 4) {
+        size = size + 1;
+    }
+    std::string charset = "0"; // Default value
+    if (national) {
+        charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Use uppercase for national teams
+    }
+    else {
+        charset = "abcdefghijklmnopqrstuvwxyz"; // Use lowercase for non-national teams
+    }
+
+    const size_t charsetSize = charset.size();
+
+    // Random device and generator
+    std::random_device rd;  // Seed
+    std::mt19937 generator(rd()); // Mersenne Twister generator
+    std::uniform_int_distribution<> distribution(0, charsetSize - 1);
+
+    for (size_t i = 0; i < size; ++i) {
+        result += charset[distribution(generator)];
+    }
+
+    return result;
+}
 
 // writeTeamData()
 // Purpose:
@@ -34,10 +67,10 @@ void writeTeamData() {
         file.close();
 
         // Defining club related variables
-        bool nationalTeam;
-        std::string clubName, clubHeadCoach, ultrasName, stadiumName, clubOwner;
-        int teamID, clubYearFounded, leagueTitles, cupsWon, stadiumCapacity, squadSize, trainingFacilities, youthClubSquadMembers, youthClubRating, popularity;
-        std::vector<int> rivalTeams;
+        bool nationalTeam = false;
+        std::string teamID, clubName, clubHeadCoach, ultrasName, stadiumName, clubOwner;
+        int clubYearFounded, leagueTitles, cupsWon, stadiumCapacity, squadSize, trainingFacilities, youthClubSquadMembers, youthClubRating, popularity;
+        std::vector<std::string> rivalTeams;
         std::vector<std::string> clubColors;
 
         std::string ynChoice; // Defining yes/no variable for booleans
@@ -51,26 +84,36 @@ void writeTeamData() {
         }
 
         if (!nationalTeam) {
-            // Find the smallest available ID
-            std::vector<int> existingIDs;
+            std::vector<std::string> existingIDs;
             for (const auto& team : teamData) {
                 if (team.contains("id")) {
-                    existingIDs.push_back(team["id"].get<int>());
+                    existingIDs.push_back(team["id"].get<std::string>());
                 }
             }
-            int newID = 1;
-            sort(existingIDs.begin(), existingIDs.end());
-            for (int id : existingIDs) {
-                if (id == newID) {
-                    ++newID;
-                }
-                else {
-                    break;
+            int newID = rand();
+            std::string sID = std::to_string(newID);
+            do {
+                std::string sSID = generateRandomString(false);
+                sID = "ID-" + sID + "-" + sSID;
+            } while (std::find(existingIDs.begin(), existingIDs.end(), sID) != existingIDs.end());
+
+            teamID = sID;
+
+        }   
+        else if (nationalTeam) {
+            std::vector <std::string> existingIDs;
+            for (const auto& team : teamData) {
+                if (team.contains("id")) {
+                    existingIDs.push_back(team["id"].get<std::string>());
                 }
             }
-
-            teamID = newID; // Making the team's estimated ID its real one
-
+            int newID = rand();
+            std::string sID = std::to_string(newID);
+            do {
+                std::string sSID = generateRandomString(true);
+                sID = "ID-" + sID + "-" + sSID;
+            } while (std::find(existingIDs.begin(), existingIDs.end(), sID) != existingIDs.end());
+            teamID = sID;
         }
 
 
@@ -106,7 +149,7 @@ void writeTeamData() {
         std::cin.ignore();
 
         for (int i = 0; i < numRivalries; i++) {
-            int rivalryId;
+            std::string rivalryId;
             std::cout << "Enter rival team ID " << i + 1 << ": ";
             std::cin >> rivalryId;
             std::cin.ignore();
@@ -149,66 +192,31 @@ void writeTeamData() {
         std::cin >> youthClubRating;
         std::cin.ignore();
 
-        if (!nationalTeam) {
+        json newTeam = {
+            {"id", teamID},
+            {"national_team", nationalTeam},
+            {"name", clubName},
+            {"head_coach", clubHeadCoach},
+            {"year_founded", clubYearFounded},
+            {"club_owner", clubOwner},
+            {"club_color(s)", clubColors},
+            {"league_titles", leagueTitles},
+            {"national_cup_titles", cupsWon},
+            {"squad_size", squadSize},
+            {"training_facilities_rating", trainingFacilities},
+            {"rival_teams", rivalTeams},
+            {"fans_name", ultrasName},
+            {"stadium_name", stadiumName},
+            {"stadium_capacity", stadiumCapacity},
+            {"youth_club_rating", youthClubRating},
+            {"youth_club_members", youthClubSquadMembers},
+            {"popularity", popularity}
+        };
 
-            // Create a JSON object and populate it with the team data
-            json newTeam = {
-                {"id", teamID},
-                {"national_team", nationalTeam},
-                {"name", clubName},
-                {"head_coach", clubHeadCoach},
-                {"year_founded", clubYearFounded},
-                {"club_owner", clubOwner},
-                {"club_color(s)", clubColors},
-                {"league_titles", leagueTitles},
-                {"national_cup_titles", cupsWon},
-                {"squad_size", squadSize},
-                {"training_facilities_rating", trainingFacilities},
-                {"rival_teams", rivalTeams},
-                {"fans_name", ultrasName},
-                {"stadium_name", stadiumName},
-                {"stadium_capacity", stadiumCapacity},
-                {"youth_club_rating", youthClubRating},
-                {"youth_club_members", youthClubSquadMembers},
-                {"popularity", popularity}
-            };
-
-            teamData.push_back(newTeam);
-            std::ofstream outFile("team_data.json");
-            outFile << teamData.dump(4); // Pretty-print with 4-space indentation
-            outFile.close();
-
-            std::cout << "Team added with ID: " << teamID << std::endl;
-        }
-        else if (nationalTeam) {
-            json newTeam = {
-                {"national_team", nationalTeam},
-                {"name", clubName},
-                {"head_coach", clubHeadCoach},
-                {"year_founded", clubYearFounded},
-                {"club_owner", clubOwner},
-                {"club_color(s)", clubColors},
-                {"league_titles", leagueTitles},
-                {"national_cup_titles", cupsWon},
-                {"squad_size", squadSize},
-                {"training_facilities_rating", trainingFacilities},
-                {"rival_teams", rivalTeams},
-                {"fans_name", ultrasName},
-                {"stadium_name", stadiumName},
-                {"stadium_capacity", stadiumCapacity},
-                {"youth_club_rating", youthClubRating},
-                {"youth_club_members", youthClubSquadMembers},
-                {"popularity", popularity}
-            };
-
-            teamData.push_back(newTeam);
-            std::ofstream outFile("team_data.json");
-            outFile << teamData.dump(4); // Pretty-print with 4-space indentation
-            outFile.close();
-        }
-        else {
-            std::cerr << "Error while saving teamData";
-        }
+        teamData.push_back(newTeam);
+        std::ofstream outFile("team_data.json");
+        outFile << teamData.dump(4); // Pretty-print with 4-space indentation
+        outFile.close();
     }
 }
 

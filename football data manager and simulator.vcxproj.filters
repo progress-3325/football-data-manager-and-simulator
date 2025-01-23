@@ -30,6 +30,12 @@
     <ClCompile Include="src\team_data.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\match_simulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\match.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data_manager.h">
@@ -41,10 +47,13 @@
     <ClInclude Include="src\player_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\team_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\version.h">
+    <ClInclude Include="src\match_simulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,27 @@
+[
+    {
+        "club_color(s)": [
+            "peevish red",
+            "purple"
+        ],
+        "club_owner": "lra",
+        "fans_name": "1000",
+        "head_coach": "spir",
+        "id": "ID-9843-EXQJCLMX",
+        "league_titles": -1,
+        "name": "Lanias",
+        "national_cup_titles": -1,
+        "national_team": true,
+        "popularity": 1000,
+        "rival_teams": [
+            92
+        ],
+        "squad_size": 16,
+        "stadium_capacity": 1000,
+        "stadium_name": "1000",
+        "training_facilities_rating": -1,
+        "year_founded": 1999,
+        "youth_club_members": -1,
+        "youth_club_rating": -1
+    }
+]

@@ -11,15 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\match.cpp" />
     <ClCompile Include="src\data_manager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\match_manager.cpp" />
+    <ClCompile Include="src\match_simulation.cpp" />
     <ClCompile Include="src\player_data.cpp" />
     <ClCompile Include="src\team_data.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data_manager.h" />
     <ClInclude Include="src\match_manager.h" />
+    <ClInclude Include="src\match_simulation.h" />
     <ClInclude Include="src\player_data.h" />
     <ClInclude Include="src\team_data.h" />
     <ClInclude Include="src\version.h" />
@@ -30,7 +33,7 @@
     <ProjectGuid>{8aa26d02-ee7a-4d42-861c-2690f9e8ba82}</ProjectGuid>
     <RootNamespace>footballdatamanager</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>football data manager simulator</ProjectName>
+    <ProjectName>football data manager and simulator</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">

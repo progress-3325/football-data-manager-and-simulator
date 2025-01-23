@@ -1,10 +1,10 @@
 #include <iostream>
-#include "player_data.h"
-#include "team_data.h"
 #include <ctime>
 #include "version.h"
 #include <windows.h>
 #include "data_manager.h"
+#include "match_manager.h"
+#include <stdexcept>
 
 void setColor(int textColor, int backgroundColor) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -27,16 +27,16 @@ int main() {
         std::cout << "Enter your choice: ";
         std::cin >> choice;
         std::cin.ignore();
-
         switch (choice) {
         case 1:
             dataManager();
-            break;
+            continue;
         case 2:
-            std::cout << "Work In Progress...";
-            break;
+            matchManager();
+            continue;
         default:
-            std::cout << "Invalid choice, please try again.\n";
+            std::cout << "Invalid input, please try again\n";
+            continue;
         }
         return 0;
     }

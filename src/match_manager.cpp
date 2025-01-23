@@ -1,42 +1,54 @@
+// match_manager.cpp
 #include <iostream>
 #include "match_manager.h"
 
-MatchManager::MatchManager(const std::map<int, Team>& teams) : teams(teams) {}
+void matchManager() {
+	int choice;
 
-void MatchManager::selectTeams(int& team1ID, int& team2ID) {
-    std::cout << "Available Teams:" << std::endl;
-    for (const auto& pair : teams) {
-        std::cout << "ID: " << pair.first << " - Team Name: " << pair.second.name << std::endl;
-    }
-    std::cout << "Enter ID for Team 1: ";
-    std::cin >> team1ID;
-    std::cin.ignore();
-    std::cout << "Enter ID for Team 2: ";
-    std::cin >> team2ID;
-    std::cin.ignore();
+	while (true) {
+		std::cout << "\nMatch Manager Menu:\n";
+		std::cout << "1. Simulate Match\n";
+		std::cout << "2. See Past Results\n";
+		std::cout << "3. Select League\n";
+		std::cout << "4. Go Back\n";
+		std::cout << "Enter Choice: ";
+		std::cin >> choice;
+		std::cin.ignore();
+
+		switch (choice) {
+		case 1:
+			simulateMatch();
+			continue;
+		case 2:
+			displayResults();
+			continue;
+		case 3:
+			selectLeague();
+			continue;
+		case 4:
+			break;
+		default:
+			std::cout << "Invalid Choice\n";
+			continue;
+		}
+	}
+	
 }
 
-void MatchManager::simulateMatch(int team1ID, int team2ID) {
-    Team team1 = teams.at(team1ID);
-    Team team2 = teams.at(team2ID);
 
-    int minutes = 90;
-    for (int minute = 1; minute <= minutes; ++minute) {
-        std::cout << "Minute " << minute << ": " << team1.name << " vs " << team2.name << std::endl;
 
-        // Simulate match events here (goals, fouls, etc.)
-        std::cout << "Simulating actions..." << std::endl;
+void displayResults() {
+	std::cout << "\nDisplaying Past Results...\n";
+	// TODO: Add functionality to retrieve and display stored match results.
+	// - Fetch data from a storage file (e.g., JSON or database).
+	// - Provide filters for specific teams, leagues, or time periods.
+	// - Display match statistics (e.g., scores, top performers).
+}
 
-        std::cout << "Press 1 to continue to the next minute..." << std::endl;
-        int input;
-        std::cin >> input;
-
-        while (input != 1) {
-            std::cout << "Invalid input. Please enter 1 to continue." << std::endl;
-            std::cin >> input;
-        }
-    }
-
-    std::cout << "Match Finished!" << std::endl;
-    // Print final score, stats, etc.
+void selectLeague() {
+	std::cout << "\nSelecting a League...\n";
+	// TODO: Add functionality to manage league selection.
+	// - Allow the user to choose a league or tournament from available options.
+	// - Load league-specific data (teams, schedules, etc.).
+	// - Prepare for future league simulation compatibility.
 }
