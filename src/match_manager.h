@@ -5,3 +5,4 @@ void displayResults();
 void selectLeague();
 void clubMatch();
 void nationMatch();
+void clubNationMatch();

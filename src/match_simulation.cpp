@@ -1,7 +1,7 @@
 // match_simulation.cpp
 #include <iostream>
 #include "match_manager.h"
-#include "match_simulation.h"
+#include "match_setup.h"
 #include <fstream>
 #include "json.hpp"
 
@@ -20,7 +20,8 @@ void simulateMatch() {
 		std::cout << "1. Club vs. Club\n";
 		std::cout << "2. National Team vs. National Team\n";
 		std::cout << "3. Club vs. National Team\n";
-		std::cout << "4. Go Back\n";
+		std::cout << "4. Modify Match Settings\n";
+		std::cout << "5. Go Back\n";
 		std::cout << "Enter your choice: ";
 		std::cin >> choice;
 		std::cin.ignore();
@@ -35,6 +36,9 @@ void simulateMatch() {
 		case 3:
 			continue;
 		case 4:
+			matchSettings();
+			continue;
+		case 5:
 			break;
 		default:
 			std::cout << "\nInvalid Choice\n";
@@ -45,17 +49,3 @@ void simulateMatch() {
 	
 }
 
-void matchSettings() {
-	std::fstream sFile("match_settings.json", std::ios::in | std::ios::out | std::ios::app);
-	json settings;
-	if (std::filesystem::exists("match_settings.json") && sFile.peek() != std::ifstream::traits_type::eof()) {
-		sFile >> settings;
-	}
-	else {
-		settings = json::basic_json();
-	}
-	sFile.close();
-
-	
-
-}

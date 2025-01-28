@@ -40,7 +40,7 @@ void matchManager() {
 void displayResults() {
 	std::cout << "\nDisplaying Past Results...\n";
 	// TODO: Add functionality to retrieve and display stored match results.
-	// - Fetch data from a storage file (e.g., JSON or database).
+	// - Fetch data from a storage file.
 	// - Provide filters for specific teams, leagues, or time periods.
 	// - Display match statistics (e.g., scores, top performers).
 }

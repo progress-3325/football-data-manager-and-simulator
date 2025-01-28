@@ -36,6 +36,9 @@
     <ClCompile Include="src\match.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\match_setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data_manager.h">
@@ -53,7 +56,7 @@
     <ClInclude Include="src\team_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\match_simulation.h">
+    <ClInclude Include="src\match_setup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -247,10 +247,6 @@ void displayTeamData() {
     }
     // Reading saved data from "team_data.json"
 
-    bool nationalTeam;
-    nationalTeam = teamDataArray["national_team"];
-
-    if (!nationalTeam) {
         for (const auto& teamData : teamDataArray) {
             std::cout << "---------------------------------" << std::endl;
             std::cout << "Team ID: " << teamData["id"] << std::endl;
@@ -280,45 +276,13 @@ void displayTeamData() {
             std::cout << "Youth Club Rating: " << teamData["youth_club_rating"] << std::endl;
             std::cout << "Youth Club Members: " << teamData["youth_club_members"] << std::endl;
         }
-    }
-    else if (nationalTeam) {
-        for (const auto& teamData : teamDataArray) {
-            std::cout << "---------------------------------" << std::endl;
-            std::cout << "National team: " << (teamData["national_team"].get<bool>() ? "Yes" : "No") << std::endl;
-            std::cout << "Club Name: " << teamData["name"] << std::endl;
-            std::cout << "Head Coach: " << teamData["head_coach"] << std::endl;
-            std::cout << "Year Founded: " << teamData["year_founded"] << std::endl;
-            std::cout << "Owner: " << teamData["club_owner"] << std::endl;
-            std::cout << "Colors: ";
-            for (const auto& color : teamData["club_color(s)"]) {
-                std::cout << color << " ";
-            }
-            std::cout << std::endl;
-            std::cout << "League Titles: " << teamData["league_titles"] << std::endl;
-            std::cout << "National Cup Titles: " << teamData["national_cup_titles"] << std::endl;
-            std::cout << "Squad Size: " << teamData["squad_size"] << std::endl;
-            std::cout << "Training Facilities Rating: " << teamData["training_facilities_rating"] << std::endl;
-            std::cout << "Stadium Name: " << teamData["stadium_name"] << std::endl;
-            std::cout << "Stadium Capacity: " << teamData["stadium_capacity"] << std::endl;
-            std::cout << "Rival Teams: ";
-            for (const auto& id : teamData["rival_teams"]) {
-                std::cout << id << " ";
-            }
-            std::cout << std::endl;
-            std::cout << "Fan Group Name: " << teamData["fans_name"] << std::endl;
-            std::cout << "Social Media Followers: " << teamData["popularity"] << std::endl;
-            std::cout << "Youth Club Rating: " << teamData["youth_club_rating"] << std::endl;
-            std::cout << "Youth Club Members: " << teamData["youth_club_members"] << std::endl;
-        }
-    }
-
     std::cout << "End of team data." << std::endl;
 }
 
 void displayTeamPlayersData() {
     std::cout << "Enter Desired Team ID: ";
-    int selectedTeamID;
-    std::cin >> selectedTeamID;
+    std::string selectedTeamID;
+    std::getline(std::cin, selectedTeamID);
 
     // Display players of the selected team
     std::ifstream playerFile("player_data.json");
