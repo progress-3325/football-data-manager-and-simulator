@@ -6,7 +6,7 @@
 
 using nlohmann::json;
 
-void getClubMatchTeams(json team1, json team2) {
+void getClubMatchTeams(json& team1, json& team2) {
     std::ifstream file("team_data.json");
     if (!file.is_open()) {
         std::cerr << "Error opening JSON file!" << std::endl;
@@ -90,7 +90,7 @@ void getClubMatchTeams(json team1, json team2) {
     team2 = awayTeam;
 }
 
-void getNationMatchTeams(json team1, json team2) {
+void getNationMatchTeams(json& team1, json& team2) {
     std::ifstream file("team_data.json");
     if (!file.is_open()) {
         std::cerr << "Error opening JSON file!" << std::endl;
@@ -162,7 +162,7 @@ void getNationMatchTeams(json team1, json team2) {
     team2 = awayTeam;
 }
 
-void getClubNationMatchTeams(json team1, json team2) {
+void getClubNationMatchTeams(json& team1, json& team2) {
     std::ifstream file("team_data.json");
     if (!file.is_open()) {
         std::cerr << "Error opening JSON file!" << std::endl;
@@ -263,6 +263,27 @@ void getClubNationMatchTeams(json team1, json team2) {
 
     team1 = homeTeam;
     team2 = awayTeam;
+}
+
+void getClubPlayers(const json& team1, const json& team2, std::vector<json>& homePlayers, std::vector<json>& awayPlayers) {
+    std::ifstream pFile("player_data.json");
+    if (!pFile.is_open()) {
+        std::cerr << "Error opening the JSON file!\n";
+        return;
+    }
+
+    json playerDataArray;
+    pFile >> playerDataArray;
+    pFile.close();
+
+    for (const auto& player : playerDataArray) {
+        if (player["team_id"] == team1["id"]) {
+            homePlayers.push_back(player);
+        }
+        else if (player["team_id"] == team2["id"]) {
+            awayPlayers.push_back(player);
+        }
+    }
 }
 
 void matchSettings() {
