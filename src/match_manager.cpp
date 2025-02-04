@@ -1,8 +1,11 @@
 // match_manager.cpp
 #include <iostream>
 #include "match_manager.h"
+#include "func.h"
 
 void matchManager() {
+	setColor(2, 0);
+
 	int choice;
 
 	while (true) {
@@ -26,7 +29,7 @@ void matchManager() {
 			selectLeague();
 			continue;
 		case 4:
-			break;
+			return;
 		default:
 			std::cout << "Invalid Choice\n";
 			continue;

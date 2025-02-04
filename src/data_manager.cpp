@@ -2,8 +2,10 @@
 #include "player_data.h"
 #include "team_data.h"
 #include "data_manager.h"
+#include "func.h"
 
 void dataManager() {
+    setColor(10, 0);
     int choice;
     while (true) {
         // Display the menu to the user
