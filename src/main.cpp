@@ -5,11 +5,7 @@
 #include "data_manager.h"
 #include "match_manager.h"
 #include <stdexcept>
-
-void setColor(int textColor, int backgroundColor) {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, textColor | (backgroundColor << 4));
-}
+#include "func.h"
 
 int main() {
     srand(time(NULL));
@@ -24,6 +20,7 @@ int main() {
         std::cout << "\nMenu: \n";
         std::cout << "1. Data Manager\n";
         std::cout << "2. Match Manager (WIP)\n";
+        std::cout << "3. Exit\n";
         std::cout << "Enter your choice: ";
         std::cin >> choice;
         std::cin.ignore();
@@ -34,6 +31,8 @@ int main() {
         case 2:
             matchManager();
             continue;
+        case 3:
+            return 0;
         default:
             std::cout << "Invalid input, please try again\n";
             continue;
