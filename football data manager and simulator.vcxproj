@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\func.cpp" />
     <ClCompile Include="src\match_setup.cpp" />
     <ClCompile Include="src\match.cpp" />
     <ClCompile Include="src\data_manager.cpp" />
@@ -21,6 +22,7 @@
     <ClCompile Include="src\team_data.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\func.h" />
     <ClInclude Include="src\data_manager.h" />
     <ClInclude Include="src\match_manager.h" />
     <ClInclude Include="src\match_setup.h" />
