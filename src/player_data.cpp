@@ -7,6 +7,9 @@
 #include <vector>
 #include <unordered_map>
 #include <limits>
+#include <algorithm>
+#include <random>
+#include "func.h"
 
 // player_data.cpp
 // adds the role of functions defined in "player_data.h"
@@ -15,6 +18,8 @@
 // progress-3325
 
 using json = nlohmann::json;
+
+
 
 // writePlayerData()
 // Purpose: 
@@ -36,34 +41,18 @@ void writePlayerData() {
     }
     inputFile.close();
 
-    // Find the smallest available ID
-    std::vector<int> existingIDs;
-    for (const auto& player : playerDataArray) {
-        if (player.contains("id")) {
-            existingIDs.push_back(player["id"].get<int>());
-        }
-    }
-    int newID = 1;
-    std::sort(existingIDs.begin(), existingIDs.end());
-    for (int id : existingIDs) {
-        if (id == newID) {
-            ++newID;
-        }
-        else {
-            break;
-        }
-    }
-    int playerID = newID;
 
     // Prompt user for player data
-    std::string playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate, prefferedRole;
-    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate, teamID, aggression, penaltyShoot, setPiece, ballControl, stamina{}, injuryProne, matchesPlayed, goalsScored, assists, cleanSheets, tacklesWon, passingAccuracy, shotsOnTarget, specialTraitsNum, potentialRating, trainingWorkRate, clutchFactor;
+    std::string playerID, playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate, prefferedRole, teamID;
+    int playerRating, playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate, aggression, penaltyShoot, setPiece, ballControl, stamina{}, injuryProne, matchesPlayed, goalsScored, assists, cleanSheets, tacklesWon, passingAccuracy, shotsOnTarget, specialTraitsNum, potentialRating, trainingWorkRate, clutchFactor;
     bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
-    float playerHeight, playerWeight, morale, consistency, teamPlayer;
+    double playerHeight, playerWeight, morale, consistency, teamPlayer;
     std::vector<std::string> specialTraits;
     std::map<std::string, int> positionVersatility;
     std::vector<std::string> positions = {"Goalkeeper", "Center Back", "Left Back", "Right Back", "Left Wing-Back", "Right Wing-Back", "Sweeper", "Central Midfielder", "Left Midfielder", "Right Midfielder", "Central Attacking Midfielder", "Attacking Midfielder", "Wide Midfielder", "Defensive Midfielder", "Central Defensive Midfielder", "Center Forward", "Left Winger", "Right Winger", "Striker", "Second Striker"};
     int versatilityScore{};
+
+    playerID = generatePlayerID();
 
     std::cout << "Enter player's name: ";
     getline(std::cin, playerName);
@@ -76,8 +65,7 @@ void writePlayerData() {
     getline(std::cin, playerNationality);
 
     std::cout << "Enter ID of player's team: ";
-    std::cin >> teamID;
-    std::cin.ignore();
+    std::getline(std::cin, teamID);
 
     std::cout << "Enter player's date of birth: ";
     getline(std::cin, dateOfBirth);
@@ -118,7 +106,7 @@ void writePlayerData() {
         std::cerr << "Invalid character entered, please try again" << std::endl;
     }
 
-    if (playerIsAmbidextrous == false) {
+    if (!playerIsAmbidextrous) {
         std::cout << "Is the player right footed (y/n)? ";
         getline(std::cin, ynChoice);
         if (ynChoice == "y" || "Y") {

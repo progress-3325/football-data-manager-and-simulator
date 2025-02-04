@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <random>
 #include <algorithm>
+#include "func.h"
 
 // team_data.cpp
 // adds functionality to functions defined in team_data.h
@@ -16,33 +17,6 @@
 using json = nlohmann::json;
 
 
-std::string generateRandomString(bool national) {
-    std::string result;
-    int size = rand() % 21;
-    if (size <= 4) {
-        size = size + 1;
-    }
-    std::string charset = "0"; // Default value
-    if (national) {
-        charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Use uppercase for national teams
-    }
-    else {
-        charset = "abcdefghijklmnopqrstuvwxyz"; // Use lowercase for non-national teams
-    }
-
-    const size_t charsetSize = charset.size();
-
-    // Random device and generator
-    std::random_device rd;  // Seed
-    std::mt19937 generator(rd()); // Mersenne Twister generator
-    std::uniform_int_distribution<> distribution(0, charsetSize - 1);
-
-    for (size_t i = 0; i < size; ++i) {
-        result += charset[distribution(generator)];
-    }
-
-    return result;
-}
 
 // writeTeamData()
 // Purpose:
@@ -69,7 +43,8 @@ void writeTeamData() {
         // Defining club related variables
         bool nationalTeam = false;
         std::string teamID, clubName, clubHeadCoach, ultrasName, stadiumName, clubOwner;
-        int clubYearFounded, leagueTitles, cupsWon, stadiumCapacity, squadSize, trainingFacilities, youthClubSquadMembers, youthClubRating, popularity;
+        int clubYearFounded, leagueTitles, cupsWon, squadSize, trainingFacilities, youthClubSquadMembers, youthClubRating;
+        unsigned long long popularity, stadiumCapacity;
         std::vector<std::string> rivalTeams;
         std::vector<std::string> clubColors;
 
@@ -84,36 +59,10 @@ void writeTeamData() {
         }
 
         if (!nationalTeam) {
-            std::vector<std::string> existingIDs;
-            for (const auto& team : teamData) {
-                if (team.contains("id")) {
-                    existingIDs.push_back(team["id"].get<std::string>());
-                }
-            }
-            int newID = rand();
-            std::string sID = std::to_string(newID);
-            do {
-                std::string sSID = generateRandomString(false);
-                sID = "ID-" + sID + "-" + sSID;
-            } while (std::find(existingIDs.begin(), existingIDs.end(), sID) != existingIDs.end());
-
-            teamID = sID;
-
+            teamID = generateClubID();
         }   
         else if (nationalTeam) {
-            std::vector <std::string> existingIDs;
-            for (const auto& team : teamData) {
-                if (team.contains("id")) {
-                    existingIDs.push_back(team["id"].get<std::string>());
-                }
-            }
-            int newID = rand();
-            std::string sID = std::to_string(newID);
-            do {
-                std::string sSID = generateRandomString(true);
-                sID = "ID-" + sID + "-" + sSID;
-            } while (std::find(existingIDs.begin(), existingIDs.end(), sID) != existingIDs.end());
-            teamID = sID;
+            teamID = generateNationID();
         }
 
 
@@ -247,35 +196,44 @@ void displayTeamData() {
     }
     // Reading saved data from "team_data.json"
 
-        for (const auto& teamData : teamDataArray) {
-            std::cout << "---------------------------------" << std::endl;
-            std::cout << "Team ID: " << teamData["id"] << std::endl;
-            std::cout << "National team: " << (teamData["national_team"].get<bool>() ? "Yes" : "No") << std::endl;
-            std::cout << "Club Name: " << teamData["name"] << std::endl;
-            std::cout << "Head Coach: " << teamData["head_coach"] << std::endl;
-            std::cout << "Year Founded: " << teamData["year_founded"] << std::endl;
-            std::cout << "Owner: " << teamData["club_owner"] << std::endl;
-            std::cout << "Colors: ";
-            for (const auto& color : teamData["club_color(s)"]) {
-                std::cout << color << " ";
-            }
-            std::cout << std::endl;
-            std::cout << "League Titles: " << teamData["league_titles"] << std::endl;
-            std::cout << "National Cup Titles: " << teamData["national_cup_titles"] << std::endl;
-            std::cout << "Squad Size: " << teamData["squad_size"] << std::endl;
-            std::cout << "Training Facilities Rating: " << teamData["training_facilities_rating"] << std::endl;
-            std::cout << "Stadium Name: " << teamData["stadium_name"] << std::endl;
-            std::cout << "Stadium Capacity: " << teamData["stadium_capacity"] << std::endl;
-            std::cout << "Rival Teams: ";
-            for (const auto& id : teamData["rival_teams"]) {
-                std::cout << id << " ";
-            }
-            std::cout << std::endl;
-            std::cout << "Fan Group Name: " << teamData["fans_name"] << std::endl;
-            std::cout << "Social Media Followers: " << teamData["popularity"] << std::endl;
-            std::cout << "Youth Club Rating: " << teamData["youth_club_rating"] << std::endl;
-            std::cout << "Youth Club Members: " << teamData["youth_club_members"] << std::endl;
+    for (const auto& teamData : teamDataArray) {
+        std::cout << "---------------------------------" << std::endl;
+        std::cout << "Team ID: " << teamData["id"] << std::endl;
+        std::cout << "National team: " << (teamData["national_team"].get<bool>() ? "Yes" : "No") << std::endl;
+        std::cout << "Club Name: " << teamData["name"] << std::endl;
+        std::cout << "Head Coach: " << teamData["head_coach"] << std::endl;
+        std::cout << "Year Founded: " << teamData["year_founded"] << std::endl;
+        std::cout << "Owner: " << teamData["club_owner"] << std::endl;
+        std::cout << "Colors: ";
+        for (const auto& color : teamData["club_color(s)"]) {
+            std::cout << color << " ";
         }
+        std::cout << std::endl;
+        std::cout << "League Titles: " << teamData["league_titles"] << std::endl;
+        std::cout << "National Cup Titles: " << teamData["national_cup_titles"] << std::endl;
+        std::cout << "Squad Size: " << teamData["squad_size"] << std::endl;
+        std::cout << "Training Facilities Rating: " << teamData["training_facilities_rating"] << std::endl;
+        std::cout << "Stadium Name: " << teamData["stadium_name"] << std::endl;
+        std::cout << "Stadium Capacity: " << teamData["stadium_capacity"] << std::endl;
+        std::cout << "Rival Teams: ";
+        for (const auto& rivalID : teamData["rival_teams"]) {
+            std::string rivalName = "Unknown"; // Default if rival ID is not found
+
+            // Search for the rival team's name based on its ID
+            for (const auto& rivalTeam : teamDataArray) {
+                if (rivalTeam["id"] == rivalID) {
+                    rivalName = rivalTeam["name"];
+                    break;
+                }
+            }
+            std::cout << "Team Name: " << rivalName << "\nTeam ID: " << rivalID;
+        }
+        std::cout << std::endl;
+        std::cout << "Fan Group Name: " << teamData["fans_name"] << std::endl;
+        std::cout << "Social Media Followers: " << teamData["popularity"] << std::endl;
+        std::cout << "Youth Club Rating: " << teamData["youth_club_rating"] << std::endl;
+        std::cout << "Youth Club Members: " << teamData["youth_club_members"] << std::endl;
+    }
     std::cout << "End of team data." << std::endl;
 }
 
