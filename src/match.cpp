@@ -85,7 +85,7 @@ void clubMatch() {
             std::cout << "  " << pos << ":\n";
         }
 
-        std::cout << "    " << player["name"] << " - Rating: " << player["rating"] << "\n";
+        std::cout << "    " << player["name"] << " - Rating: " << player["rating"] << "     ID" << player["id"] << "\n\n";
     }
 
     std::cout << awayTeam["name"] << " Players:\n";
@@ -100,10 +100,30 @@ void clubMatch() {
             std::cout << "  " << pos << ":\n";
         }
 
-        std::cout << "    " << player["name"] << " - Rating: " << player["rating"] << "\n";
+        std::cout << "    " << player["name"] << " - Rating: " << player["rating"] << "     ID" << player["id"] << "\n";
     }
 
     setColor(4, 0);
+
+    std::string homeFormation;
+
+    std::cout << "Select Home Team formation: ";
+    std::getline(std::cin, homeFormation);
+
+    std::string awayFormation;
+    std::cout << "Select Awat Team formation ";
+    std::getline(std::cin, awayFormation);
+
+    std::map<std::string, std::string> homePlayerMappings;
+    std::map<std::string, std::string> awayPlayerMappings;
+
+    formation(homeFormation, awayFormation, homePlayers, awayPlayers, homePlayerMappings, awayPlayerMappings);
+    
+
+    /*
+        simulate(1, 1);
+    */
+    
 }
 
 void nationMatch() {

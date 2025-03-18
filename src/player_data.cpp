@@ -49,8 +49,8 @@ void writePlayerData() {
     double playerHeight, playerWeight, morale, consistency, teamPlayer;
     std::vector<std::string> specialTraits;
     std::map<std::string, int> positionVersatility;
-    std::vector<std::string> positions = {"Goalkeeper", "Center Back", "Left Back", "Right Back", "Left Wing-Back", "Right Wing-Back", "Sweeper", "Central Midfielder", "Left Midfielder", "Right Midfielder", "Central Attacking Midfielder", "Attacking Midfielder", "Wide Midfielder", "Defensive Midfielder", "Central Defensive Midfielder", "Center Forward", "Left Winger", "Right Winger", "Striker", "Second Striker"};
-    int versatilityScore{};
+    std::vector<std::string> positions = {"Goalkeeper", "Center Back", "Left Back", "Right Back", "Left Wing-Back", "Right Wing-Back", "Sweeper", "Central Midfielder", "Left Midfielder", "Right Midfielder", "Central Attacking Midfielder", "Attacking Midfielder", "Wide Midfielder", "Left Defensive Midfielder", "Right Defensive Midfielder", "Central Defensive Midfielder", "Center Forward", "Left Winger", "Right Winger", "Striker", "Second Striker"};
+    int versatilityScore = 0;
 
     playerID = generatePlayerID();
 
@@ -287,6 +287,14 @@ void writePlayerData() {
         position = "DM";
         playerRating = (pace * .15) + (dribbling * .15) + (passing * .25) + (shooting * .05) + (defending * .3) + (physicality * .1);
     }
+    else if (playerPosition == "left defensive midfielder" || playerPosition == "Left Defensive Midfielder" || playerPosition == "LDM") {
+        position = "LDM";
+        playerRating = (pace * .15) + (dribbling * .15) + (passing * .25) + (shooting * .05) + (defending * .3) + (physicality * .1);
+    }
+    else if (playerPosition == "right defensive midfielder" || playerPosition == "Right Defensive Midfielder" || playerPosition == "RDM") {
+        position = "RDM";
+        playerRating = (pace * .15) + (dribbling * .15) + (passing * .25) + (shooting * .05) + (defending * .3) + (physicality * .1);
+    }
     else if (playerPosition == "central defensive midfielder" || playerPosition == "Central Defensive Midfielder" || playerPosition == "CDM") {
         position = "CDM";
         playerRating = (pace * .15) + (dribbling * .2) + (passing * .25) + (shooting * .05) + (defending * .25) + (physicality * .1);
@@ -467,41 +475,41 @@ void writePlayerData() {
 
         // Create a JSON object for the new player
         json newPlayer = {
-            {"id", playerID}, // done
-            {"name", playerName}, // done
-            {"rating", playerRating}, // done
-            {"position", position}, // done
-            {"number", playerNumber}, // done
-            {"is_captain", playerIsCaptain}, // done
-            {"ambidextrous", playerIsAmbidextrous}, // done
-            {"right_foot", rightFoot}, // done
-            {"left_foot", leftFoot}, // done
-            {"pace", pace}, // done
-            {"dribbling", dribbling}, // done
-            {"passing", passing}, // done
-            {"shooting", shooting}, // done
-            {"defending", defending}, // done
-            {"physicality", physicality}, // done
-            {"work_rate", workRate}, // done
-            {"nationality", playerNationality}, // done
-            {"date_of_birth", dateOfBirth}, // done
-            {"contract_expiry_date", contractExpiryDate}, // done
-            {"work_rate", workRate}, // done
-            {"preffered_role", prefferedRole}, // done
-            {"value", playerValue}, // done
-            {"wage", playerWage}, // done
-            {"composure", composure}, // done
-            {"vision", vision}, // done
-            {"positioning", positioning}, // done
-            {"shooting", longShots}, // done
-            {"defensive_work_rate", defWorkRate}, // done
-            {"offensive_work_rate", offWorkRate}, // done
-            {"team_id", teamID}, // done
-            {"aggression", aggression}, // done
-            {"penalty", penaltyShoot}, // done
-            {"set_pieces", setPiece}, // done
-            {"ball_control", ballControl}, // done
-            {"stamina", stamina}, // done
+            {"id", playerID}, 
+            {"name", playerName}, 
+            {"rating", playerRating}, 
+            {"position", position}, 
+            {"number", playerNumber}, 
+            {"is_captain", playerIsCaptain}, 
+            {"ambidextrous", playerIsAmbidextrous}, 
+            {"right_foot", rightFoot}, 
+            {"left_foot", leftFoot}, 
+            {"pace", pace}, 
+            {"dribbling", dribbling}, 
+            {"passing", passing}, 
+            {"shooting", shooting}, 
+            {"defending", defending}, 
+            {"physicality", physicality}, 
+            {"work_rate", workRate}, 
+            {"nationality", playerNationality}, 
+            {"date_of_birth", dateOfBirth}, 
+            {"contract_expiry_date", contractExpiryDate}, 
+            {"work_rate", workRate}, 
+            {"preffered_role", prefferedRole}, 
+            {"value", playerValue}, 
+            {"wage", playerWage}, 
+            {"composure", composure}, 
+            {"vision", vision}, 
+            {"positioning", positioning}, 
+            {"shooting", longShots}, 
+            {"defensive_work_rate", defWorkRate}, 
+            {"offensive_work_rate", offWorkRate}, 
+            {"team_id", teamID}, 
+            {"aggression", aggression}, 
+            {"penalty", penaltyShoot}, 
+            {"set_pieces", setPiece}, 
+            {"ball_control", ballControl}, 
+            {"stamina", stamina}, 
             {"injury_prone", injuryProne},
             {"appearances", matchesPlayed},
             {"goals", goalsScored},
@@ -510,16 +518,16 @@ void writePlayerData() {
             {"tackles", tacklesWon},
             {"shots_on_target", shotsOnTarget},
             {"passing_accuracy", passingAccuracy},
-            {"special_traits", specialTraits}, // done
-            {"potential", potentialRating}, // done
-            {"training", trainingWorkRate}, // done
+            {"special_traits", specialTraits}, 
+            {"potential", potentialRating}, 
+            {"training", trainingWorkRate}, 
             {"clutch_factor", clutchFactor},
-            {"height", playerHeight}, // done
-            {"weight", playerWeight}, // done
-            {"consistency", consistency}, // done
-            {"morale", morale}, // done
-            {"team_player", teamPlayer}, // done
-            {"versatility", versatilityJson} // done
+            {"height", playerHeight}, 
+            {"weight", playerWeight}, 
+            {"consistency", consistency}, 
+            {"morale", morale}, 
+            {"team_player", teamPlayer}, 
+            {"versatility", versatilityJson} 
         };
 
 
