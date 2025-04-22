@@ -954,11 +954,12 @@ void formation
 
 std::map<std::string, std::pair<int, int>> setPitchPos(std::map<std::string, std::string> positionMap)
 {
+    std::map<std::string, std::pair<int, int>> pitchPos;
     std::vector<std::string> playerIDs;
     for (auto&& [key, value] : positionMap)
     {
         playerIDs.push_back(key);
     }
 
-    
+    return pitchPos;
 }
