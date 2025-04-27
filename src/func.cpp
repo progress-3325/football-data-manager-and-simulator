@@ -8,6 +8,7 @@
 #include <vector>
 #include <map>
 #include <utility>
+#include <private.h>
 
 using nlohmann::json;
  // General
@@ -962,7 +963,7 @@ std::map<std::string, std::pair<int, int>> setPitchPos(std::map<std::string, std
 #include <stdexcept>
 void exportPlayerData(const json obj)
 {
-    const std::string path = "C:/Users/Administrator/source/repos/progress-3325/data-manager/export_player_data.py";
+    const std::string path = pv::path + "export_player_data.py";
     std::string command = "python3 " + path;
 
     FILE* pipe = _popen(command.c_str(), "w");
@@ -984,7 +985,7 @@ void exportPlayerData(const json obj)
 #include <sstream>
 json importPlayerData(std::vector<std::string>* ids, std::string* teamID)
 {
-    const std::string path = "C:/Users/Administrator/source/repos/progress-3325/data-manager/import_player_data.py";
+    const std::string path = pv::path + "import_player_data.py";
     if (ids == NULL && teamID == NULL)
     {
         std::string command = "python3 " + path;

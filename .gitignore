@@ -366,3 +366,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 vcpkg/
+include/headers/private.h
