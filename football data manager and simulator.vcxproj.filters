@@ -18,7 +18,7 @@
     <ClCompile Include="src\data_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\entry point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\match_manager.cpp">
@@ -42,27 +42,39 @@
     <ClCompile Include="src\func.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Team.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="files\sqlite3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\data_manager.h">
+    <ClInclude Include="include\headers\data_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\match_manager.h">
+    <ClInclude Include="include\headers\match_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\player_data.h">
+    <ClInclude Include="include\headers\player_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\version.h">
+    <ClInclude Include="include\headers\version.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\team_data.h">
+    <ClInclude Include="include\headers\team_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\match_setup.h">
+    <ClInclude Include="include\headers\match_setup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\func.h">
+    <ClInclude Include="include\headers\func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\headers\Team.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="files\sqlite3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

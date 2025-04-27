@@ -1,51 +1,55 @@
-// match_simulation.cpp
-#include <iostream>
-#include "match_manager.h"
-#include "match_setup.h"
-#include <fstream>
-#include "json.hpp"
+#include <iostream> // For input and output operations
+#include "match_manager.h" // Custom header for managing match-related logic
+#include "match_setup.h" // Custom header for setting up matches
+#include <fstream> // For file operations (e.g., saving results)
+#include "json.hpp" // For handling JSON data
 
+// Alias for the JSON library namespace
 using json = nlohmann::json;
 
+// Function to simulate a match
 void simulateMatch() {
-	// TODO: Add logic for match simulation.
-	// - Allow user to choose teams (by ID or nationality for national teams).
-	// - Incorporate team/player stats into the simulation.
-	// - Display results minute-by-minute (if required).
-	// - Save results for future reference.
-	int choice;
 
-	while (true) {
-		std::cout << "\nMatch Simulation Menu:\n";
-		std::cout << "1. Club vs. Club\n";
-		std::cout << "2. National Team vs. National Team\n";
-		std::cout << "3. Club vs. National Team\n";
-		std::cout << "4. Modify Match Settings\n";
-		std::cout << "5. Go Back\n";
-		std::cout << "Enter your choice: ";
-		std::cin >> choice;
-		std::cin.ignore();
+    int choice; // Variable to store the user's menu choice
 
-		switch (choice) {
-		case 1:
-			clubMatch();
-			continue;
-		case 2:
-			nationMatch();
-			continue;
-		case 3:
-			continue;
-		case 4:
-			matchSettings();
-			continue;
-		case 5:
-			break;
-		default:
-			std::cout << "\nInvalid Choice\n";
-			continue;
-		}
-		break;
-	}
-	
+    // Infinite loop to display the menu until the user decides to exit
+    while (true) {
+        // Display the match simulation menu
+        std::cout << "\nMatch Simulation Menu:\n";
+        std::cout << "1. Club vs. Club\n"; // Option for simulating a match between two clubs
+        std::cout << "2. National Team vs. National Team\n"; // Option for simulating a match between two national teams
+        std::cout << "3. Club vs. National Team\n"; // Option for simulating a match between a club and a national team
+        std::cout << "4. Modify Match Settings\n"; // Option to modify match settings
+        std::cout << "5. Go Back\n"; // Option to exit the menu
+        std::cout << "Enter your choice: ";
+        std::cin >> choice; // Read the user's choice
+        std::cin.ignore(); // Clear the input buffer to avoid issues with subsequent input
+
+        // Handle the user's choice using a switch statement
+        switch (choice) {
+        case 1:
+            // Call the function to simulate a club vs. club match
+            clubMatch();
+            continue; // Return to the menu after the operation
+        case 2:
+            // Call the function to simulate a national team vs. national team match
+            nationMatch();
+            continue; // Return to the menu after the operation
+        case 3:
+            // Placeholder for club vs. national team match logic
+            continue; // Return to the menu after the operation
+        case 4:
+            // Call the function to modify match settings
+            matchSettings();
+            continue; // Return to the menu after the operation
+        case 5:
+            // Exit the menu loop
+            break;
+        default:
+            // Handle invalid input
+            std::cout << "\nInvalid Choice\n";
+            continue; // Return to the menu after displaying the error
+        }
+        break; // Exit the loop if the user chooses to go back
+    }
 }
-

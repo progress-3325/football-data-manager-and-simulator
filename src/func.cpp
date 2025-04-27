@@ -486,117 +486,120 @@ void formation
         else if (home == "3-4-1-2") 
         {
             selectPosition("GK", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "GK";
 
             selectPosition("CB", playerIDs, 3);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[1];
-            homePositionMappings[playerIDs[0]] = playerIDs[2];
+            homePositionMappings[playerIDs[0]] = "CB1";
+            homePositionMappings[playerIDs[1]] = "CB2";
+            homePositionMappings[playerIDs[2]] = "CB3";
 
             selectPosition("LWB", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "LWB";
 
             selectPosition("RWB", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "RWB";
 
             selectPosition("CM", playerIDs, 2);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "CM1";
+            homePositionMappings[playerIDs[1]] = "CM2";
 
             selectPosition("CAM", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "CAM";
 
             selectPosition("ST", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "ST";
 
             selectPosition("SS", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "SS";
         }
-        else if (home == "3-2-4-1") {
+        else if (home == "3-2-4-1") 
+        {
             selectPosition("GK", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "GK";
 
             selectPosition("CB", playerIDs, 3);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[1];
-            homePositionMappings[playerIDs[0]] = playerIDs[2];
+            homePositionMappings[playerIDs[0]] = "CB1";
+            homePositionMappings[playerIDs[1]] = "CB2";
+            homePositionMappings[playerIDs[2]] = "CB3";
 
             selectPosition("DM", playerIDs, 2);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[1];
+            homePositionMappings[playerIDs[0]] = "DM1";
+            homePositionMappings[playerIDs[1]] = "DM2";
 
             selectPosition("LM", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "LM";
 
             selectPosition("RM", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "RM";
 
             selectPosition("CAM", playerIDs, 2);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[1];
+            homePositionMappings[playerIDs[0]] = "CAM1";
+            homePositionMappings[playerIDs[1]] = "CAM2";
 
             selectPosition("ST", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "ST";
         }
-        else if (home == "4-4-2") {
+        else if (home == "4-4-2") 
+        {
             selectPosition("GK", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "GK";
 
             selectPosition("CB", playerIDs, 2);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[1];
+            homePositionMappings[playerIDs[0]] = "CB1";
+            homePositionMappings[playerIDs[1]] = "CB2";
         
             selectPosition("LB", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "LB";
 
             selectPosition("RB", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "RB";
 
             selectPosition("CM", playerIDs, 2);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "CM1";
+            homePositionMappings[playerIDs[1]] = "CM2";
 
             selectPosition("LM", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "LM";
 
             selectPosition("RM", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "RM";
 
             selectPosition("ST", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "ST";
 
             selectPosition("SS", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "SS";
         }
-        else if (home == "4-4-2 DIAMOND" || home == "4-4-2 NARROW") {
+        else if (home == "4-4-2 DIAMOND" || home == "4-4-2 NARROW") 
+        {
             selectPosition("GK", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("CB", playerIDs, 2);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[1];
+            homePositionMappings[playerIDs[0]] = "";
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("LB", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("RB", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("CDM", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("CM", playerIDs, 2);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("CAM", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("ST", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
 
             selectPosition("SS", playerIDs, 1);
-            homePositionMappings[playerIDs[0]] = playerIDs[0];
+            homePositionMappings[playerIDs[0]] = "";
         }
         else if (home == "4-3-3") {
             selectPosition("GK", playerIDs, 1);
@@ -941,9 +944,9 @@ void formation
     }
     playerIDs.clear();
 
-    for (int i = 0; i <= awayPL; i++)
+    for (const auto& PL : awayPL)
     {
-        player = awayPL[i];
+        player = PL;
         playerIDs.push_back(player["id"]);
     }
     while (true)
@@ -962,4 +965,31 @@ std::map<std::string, std::pair<int, int>> setPitchPos(std::map<std::string, std
     }
 
     return pitchPos;
+}
+
+ // Data
+#include <cstdio>
+#include <memory>
+#include <stdexcept>
+void exportPlayerData(const json& obj)
+{
+    const std::string path = "C:/Users/Administrator/source/repos/progress-3325/data-manager/export_player_data.py";
+    std::string command = "python3 " + path;
+
+    FILE* pipe = _popen(command.c_str(), "w");
+    if (!pipe)
+    {
+        throw std::runtime_error("Failed to open Python script\n");
+    }
+
+    try
+    {
+        std::string jsonString = obj.dump();
+        fwrite(jsonString.c_str(), sizeof(char), jsonString.size(), pipe);
+    }
+    catch (...)
+    {
+        _pclose(pipe);
+        throw;
+    }
 }

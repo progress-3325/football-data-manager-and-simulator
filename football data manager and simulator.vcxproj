@@ -19,20 +19,23 @@
     <ClCompile Include="src\match_setup.cpp" />
     <ClCompile Include="src\match.cpp" />
     <ClCompile Include="src\data_manager.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\entry point.cpp" />
     <ClCompile Include="src\match_manager.cpp" />
     <ClCompile Include="src\match_simulation.cpp" />
     <ClCompile Include="src\player_data.cpp" />
     <ClCompile Include="src\team_data.cpp" />
+    <ClCompile Include="src\Team.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\func.h" />
-    <ClInclude Include="src\data_manager.h" />
-    <ClInclude Include="src\match_manager.h" />
-    <ClInclude Include="src\match_setup.h" />
-    <ClInclude Include="src\player_data.h" />
-    <ClInclude Include="src\team_data.h" />
-    <ClInclude Include="src\version.h" />
+    <ClInclude Include="files\sqlite3.h" />
+    <ClInclude Include="include\headers\func.h" />
+    <ClInclude Include="include\headers\data_manager.h" />
+    <ClInclude Include="include\headers\match_manager.h" />
+    <ClInclude Include="include\headers\match_setup.h" />
+    <ClInclude Include="include\headers\player_data.h" />
+    <ClInclude Include="include\headers\team_data.h" />
+    <ClInclude Include="include\headers\version.h" />
+    <ClInclude Include="include\headers\Team.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -72,13 +75,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)include\libraries;$(ProjectDir)include\headers\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|x64'">
-    <IncludePath>$(SolutionDir)include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)include\libraries;$(ProjectDir)include\headers\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)include\libraries;$(ProjectDir)include\headers\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -87,7 +90,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)src\;$(SolutionDir)include\;C:\Users\Administrator\source\repos\progress-3325\football-data-manager-and-simulator\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -103,7 +106,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)src\;$(SolutionDir)include\;</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -114,7 +117,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Final|x64'">
     <ClCompile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

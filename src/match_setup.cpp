@@ -287,7 +287,7 @@ void getClubPlayers(const json& team1, const json& team2, std::vector<json>& hom
 }
 
 void matchSettings() {
-    std::fstream sFile("match_settings.json", std::ios::in | std::ios::out | std::ios::app);
+    std::ifstream sFile("match_settings.json");
     json settings;
     if (std::filesystem::exists("match_settings.json") && sFile.peek() != std::ifstream::traits_type::eof()) {
         sFile >> settings;

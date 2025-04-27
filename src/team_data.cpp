@@ -28,7 +28,7 @@ using json = nlohmann::json;
 void writeTeamData() {
     {
         // Open or create the JSON file
-        std::fstream file("team_data.json", std::ios::in | std::ios::out | std::ios::app);
+        std::fstream file("../data/team_data.json", std::ios::in | std::ios::out | std::ios::app);
         json teamData;
 
         // Read existing data or initialize empty array
@@ -44,7 +44,7 @@ void writeTeamData() {
         bool nationalTeam = false;
         std::string teamID, clubName, clubHeadCoach, ultrasName, stadiumName, clubOwner;
         int clubYearFounded, leagueTitles, cupsWon, squadSize, trainingFacilities, youthClubSquadMembers, youthClubRating;
-        unsigned long long popularity, stadiumCapacity;
+        unsigned long int popularity, stadiumCapacity;
         std::vector<std::string> rivalTeams;
         std::vector<std::string> clubColors;
 
