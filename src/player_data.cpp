@@ -274,125 +274,7 @@ void writePlayerData()
         specialTraits.push_back(specialTraitName);
     }
 
-    // Prompt the user to enter the player's potential rating
-    std::cout << "Enter player's Potential Rating: ";
-    std::cin >> potentialRating;
-    std::cin.ignore();
-
-    // Declare a string variable to store the player's position
-    std::string position;
-
-    // Check if the player's position matches "goalkeeper" or its variations
-    if (playerPosition == "goalkeeper" || playerPosition == "Goalkeeper" || playerPosition == "GK") {
-        position = "GK"; // Assign the position abbreviation
-        // Calculate the player's rating based on weighted attributes
-        playerRating = (pace * .05) + (dribbling * .05) + (passing * .2) + (shooting * .05) + (defending * .3) + (physicality * .35);
-    }
-    // Check if the player's position matches "center back" or its variations
-    else if (playerPosition == "center back" || playerPosition == "Center Back" || playerPosition == "CB") {
-        position = "CB";
-        playerRating = (pace * .15) + (dribbling * .1) + (passing * .15) + (shooting * .05) + (defending * .3) + (physicality * .25);
-    }
-    // Check if the player's position matches "left back" or its variations
-    else if (playerPosition == "left back" || playerPosition == "Left Back" || playerPosition == "LB") {
-        position = "LB";
-        playerRating = (pace * .25) + (dribbling * .15) + (passing * .2) + (shooting * .05) + (defending * .25) + (physicality * .1);
-    }
-    // Check if the player's position matches "right back" or its variations
-    else if (playerPosition == "right back" || playerPosition == "Right Back" || playerPosition == "RB") {
-        position = "RB";
-        playerRating = (pace * .25) + (dribbling * .15) + (passing * .2) + (shooting * .05) + (defending * .25) + (physicality * .1);
-    }
-    // Check if the player's position matches "light wing-back" or its variations
-    else if (playerPosition == "light wing-back" || playerPosition == "Light Wing-Back" || playerPosition == "LWB") {
-        position = "LWB";
-        playerRating = (pace * .3) + (dribbling * .2) + (passing * .2) + (shooting * .05) + (defending * .15) + (physicality * .1);
-    }
-    // Check if the player's position matches "right wing-back" or its variations
-    else if (playerPosition == "right wing-back" || playerPosition == "Right Wing-Back" || playerPosition == "RWB") {
-        position = "RWB";
-        playerRating = (pace * .3) + (dribbling * .2) + (passing * .2) + (shooting * .05) + (defending * .15) + (physicality * .1);
-    }
-    // Check if the player's position matches "sweeper" or its variations
-    else if (playerPosition == "sweeper" || playerPosition == "Sweeper" || playerPosition == "SW") {
-        position = "SW";
-        playerRating = (pace * .2) + (dribbling * .1) + (passing * .2) + (shooting * .05) + (defending * .35) + (physicality * .1);
-    }
-    // Check if the player's position matches "defensive midfielder" or its variations
-    else if (playerPosition == "defensive midfielder" || playerPosition == "Defensive Midfielder" || playerPosition == "DM") {
-        position = "DM";
-        playerRating = (pace * .15) + (dribbling * .15) + (passing * .25) + (shooting * .05) + (defending * .3) + (physicality * .1);
-    }
-    // Check if the player's position matches "left defensive midfielder" or its variations
-    else if (playerPosition == "left defensive midfielder" || playerPosition == "Left Defensive Midfielder" || playerPosition == "LDM") {
-        position = "LDM";
-        playerRating = (pace * .15) + (dribbling * .15) + (passing * .25) + (shooting * .05) + (defending * .3) + (physicality * .1);
-    }
-    // Check if the player's position matches "right defensive midfielder" or its variations
-    else if (playerPosition == "right defensive midfielder" || playerPosition == "Right Defensive Midfielder" || playerPosition == "RDM") {
-        position = "RDM";
-        playerRating = (pace * .15) + (dribbling * .15) + (passing * .25) + (shooting * .05) + (defending * .3) + (physicality * .1);
-    }
-    // Check if the player's position matches "central defensive midfielder" or its variations
-    else if (playerPosition == "central defensive midfielder" || playerPosition == "Central Defensive Midfielder" || playerPosition == "CDM") {
-        position = "CDM";
-        playerRating = (pace * .15) + (dribbling * .2) + (passing * .25) + (shooting * .05) + (defending * .25) + (physicality * .1);
-    }
-    // Check if the player's position matches "central midfielder" or its variations
-    else if (playerPosition == "central midfielder" || playerPosition == "Central Midfielder" || playerPosition == "CM") {
-        position = "CM";
-        playerRating = (pace * 0.15) + (dribbling * 0.2) + (passing * 0.3) + (shooting * 0.15) + (defending * 0.1) + (physicality * 0.1);
-    }
-    // Check if the player's position matches "left midfielder" or its variations
-    else if (playerPosition == "left midfielder" || playerPosition == "Left Midfielder" || playerPosition == "LM") {
-        position = "LM";
-        playerRating = (pace * 0.25) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.15) + (defending * 0.05) + (physicality * 0.1);
-    }
-    // Check if the player's position matches "right midfielder" or its variations
-    else if (playerPosition == "right midfielder" || playerPosition == "Right Midfielder" || playerPosition == "RM") {
-        position = "RM";
-        playerRating = (pace * 0.25) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.15) + (defending * 0.05) + (physicality * 0.1);
-    }
-    // Check if the player's position matches "central attacking midfielder" or its variations
-    else if (playerPosition == "central attacking midfielder" || playerPosition == "Central Attacking Midfielder" || playerPosition == "CAM") {
-        position = "CAM";
-        playerRating = (dribbling * 0.3) + (passing * 0.3) + (shooting * 0.2) + (pace * 0.1) + (physicality * 0.05) + (defending * 0.05);
-    }
-    // Check if the player's position matches "attacking midfielder" or its variations
-    else if (playerPosition == "attacking midfielder" || playerPosition == "Attacking Midfielder" || playerPosition == "AM") {
-        position = "AM";
-        playerRating = (dribbling * 0.3) + (passing * 0.3) + (shooting * 0.2) + (pace * 0.1) + (physicality * 0.05) + (defending * 0.05);
-    }
-    // Check if the player's position matches "wide midfielder" or its variations
-    else if (playerPosition == "wide midfielder" || playerPosition == "Wide Midfielder" || playerPosition == "W") {
-        position = "W";
-        playerRating = (pace * 0.25) + (dribbling * 0.25) + (passing * 0.25) + (shooting * 0.1) + (defending * 0.1) + (physicality * 0.05);
-    }
-    // Check if the player's position matches "center forward" or its variations
-    else if (playerPosition == "center forward" || playerPosition == "Center Forward" || playerPosition == "CF") {
-        position = "CF";
-        playerRating = (pace * 0.15) + (dribbling * 0.2) + (passing * 0.1) + (shooting * 0.4) + (defending * 0.05) + (physicality * 0.1);
-    }
-    // Check if the player's position matches "striker" or its variations
-    else if (playerPosition == "striker" || playerPosition == "Striker" || playerPosition == "ST") {
-        position = "ST";
-        playerRating = (pace * 0.2) + (dribbling * 0.15) + (passing * 0.05) + (shooting * 0.5) + (defending * 0.01) + (physicality * 0.09);
-    }
-    // Check if the player's position matches "left winger" or its variations
-    else if (playerPosition == "left winger" || playerPosition == "Left Winger" || playerPosition == "LW") {
-        position = "LW";
-        playerRating = (pace * 0.2) + (dribbling * 0.15) + (passing * 0.05) + (shooting * 0.5) + (defending * 0.01) + (physicality * 0.09);
-    }
-    // Check if the player's position matches "right winger" or its variations
-    else if (playerPosition == "right winger" || playerPosition == "Right Winger" || playerPosition == "RW") {
-        position = "RW";
-        playerRating = (pace * 0.2) + (dribbling * 0.15) + (passing * 0.05) + (shooting * 0.5) + (defending * 0.01) + (physicality * 0.09);
-    }
-    // Check if the player's position matches "second striker" or its variations
-    else if (playerPosition == "second striker" || playerPosition == "Second Striker" || playerPosition == "SS") {
-        position = "SS";
-        playerRating = (pace * 0.15) + (dribbling * 0.25) + (passing * 0.2) + (shooting * 0.3) + (defending * 0.05) + (physicality * 0.05);
-    }
+    calculateWithPos(playerPosition, playerRating, pace, dribbling, passing, shooting, defending, physicality);
 
     // Iterate through all possible positions to collect versatility scores
     for (const auto& positioni : positions) {
@@ -402,10 +284,10 @@ void writePlayerData()
         // Loop to validate the input for versatility score
         while (true) {
             std::cin >> versatilityScore;
-            if (std::cin.fail() || versatilityScore < 1 || versatilityScore >= 100) {
+            if (std::cin.fail() || versatilityScore < 0 || versatilityScore > 100) {
                 std::cin.clear(); // Clear the error flag
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore invalid input
-                std::cout << "Invalid input. Enter a number between 1 and 100: ";
+                std::cout << "Invalid input. Enter a number from 1 to 100: ";
             }
             else {
                 break; // Valid input
@@ -418,26 +300,23 @@ void writePlayerData()
 
     // Declare a variable to store the player's preferred role
     int prefRole;
+prefroleinput:
     std::cout << "Enter player's preferred role (1-5): ";
     std::cin >> prefRole;
-    std::cin.ignore();
+    if (std::cin.fail() || prefRole <= 0 || prefRole >= 6)
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. Enter a number from 1 to 5";
+        goto prefroleinput;
+    }
 
     // Assign the preferred role based on the input
-    if (prefRole == 1) {
-        prefferedRole = "Bench Warmer";
-    }
-    else if (prefRole == 2) {
-        prefferedRole = "Substitute";
-    }
-    else if (prefRole == 3) {
-        prefferedRole = "Rotation";
-    }
-    else if (prefRole == 4) {
-        prefferedRole = "Starter";
-    }
-    else if (prefRole == 5) {
-        prefferedRole = "Crucial";
-    }
+    std::map<int, std::string> prefRoleMap = {
+        {1, "Bench Warmer"}, {2, "Reserve"},
+        {3, "Rotation"}, {4, "Starter"}, {5, "Crucial"}
+    };
+    prefferedRole = prefRoleMap[prefRole];
 
     // Prompt the user to enter the player's contract expiry date
     std::cout << "Enter player's Contract Expiry Date: ";
@@ -555,7 +434,7 @@ void writePlayerData()
         {"id", playerID},
         {"name", playerName},
         {"rating", playerRating},
-        {"position", position},
+        {"position", playerPosition},
         {"number", playerNumber},
         {"is_captain", playerIsCaptain},
         {"is_ambidextrous", playerIsAmbidextrous},

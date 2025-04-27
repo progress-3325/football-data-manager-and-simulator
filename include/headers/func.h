@@ -21,4 +21,6 @@ void formation(std::string home, std::string away, std::vector<json> homePL, std
 std::map<std::string, std::pair<int, int>> setPitchPos(std::map<std::string, std::string> positionMap);
 
  // Data
-void exportPlayerData(const json& obj);
+void exportPlayerData(const json obj);
+json importPlayerData(std::vector<std::string>* ids, std::string* teamID);
+void calculateWithPos(std::string& playerPosition, float& playerRating, int pace, int dribbling, int passing, int shooting, int defending, int physicality);
