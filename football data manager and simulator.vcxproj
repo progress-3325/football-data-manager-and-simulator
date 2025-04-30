@@ -33,6 +33,7 @@
     <ClInclude Include="include\headers\match_manager.h" />
     <ClInclude Include="include\headers\match_setup.h" />
     <ClInclude Include="include\headers\player_data.h" />
+    <ClInclude Include="include\headers\private.h" />
     <ClInclude Include="include\headers\team_data.h" />
     <ClInclude Include="include\headers\version.h" />
     <ClInclude Include="include\headers\Team.h" />

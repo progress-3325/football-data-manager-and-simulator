@@ -973,6 +973,7 @@ void exportPlayerData(const json obj)
     {
         std::string jsonString = obj.dump();
         fwrite(jsonString.c_str(), sizeof(char), jsonString.size(), pipe);
+        _pclose(pipe);
     }
     catch (...)
     {

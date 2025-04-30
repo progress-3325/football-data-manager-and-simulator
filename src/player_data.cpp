@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <random>
 #include "func.h"
+#include<private.h>
 
 using json = nlohmann::json;
 
@@ -33,10 +34,12 @@ void writePlayerData()
     file.close(); // Close the input file
 
     // Declare variables to store player information
-    std::string playerID, playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate, prefferedRole, teamID;
-    int playerNumber, pace, dribbling, passing, shooting, defending, physicality, playerValue, playerWage, composure, vision, positioning, longShots, defWorkRate, offWorkRate, aggression, penaltyShoot, setPiece, ballControl, stamina{}, injuryProne, matchesPlayed, goalsScored, assists, cleanSheets, tacklesWon, shotsOnTarget, specialTraitsNum, trainingWorkRate;
-    float playerRating, passingAccuracy, potentialRating, clutchFactor, playerHeight, playerWeight, morale, consistency, teamPlayer;
-    bool playerIsCaptain, playerIsAmbidextrous{}, rightFoot, leftFoot;
+    std::string playerID, playerName, playerPosition, playerNationality, dateOfBirth, contractExpiryDate, workRate, prefferedRole, teamID, foot;
+    short int ego, playerNumber, pace, dribbling, passing, shooting, defending, physicality, composure, vision, positioning, defWorkRate, offWorkRate, aggression, penaltyShoot, setPiece, ballControl, injuryProne, matchesPlayed, goalsScored, assists, cleanSheets, tacklesWon, shotsOnTarget, specialTraitsNum, trainingWorkRate;
+    int playerWage;
+    unsigned long int playerValue;
+    float playerRating, passingAccuracy, potentialRating, clutchFactor, playerHeight, playerWeight, morale, consistency, stamina;
+    bool playerIsCaptain, playerIsAmbidextrous{};
     std::vector<std::string> specialTraits; // Vector to store special traits of the player
     std::map<std::string, int> positionVersatility; // Map to store versatility scores for different positions
     std::vector<std::string> positions = { "Goalkeeper", "Center Back", "Left Back", "Right Back", "Left Wing-Back", "Right Wing-Back", "Sweeper", "Central Midfielder", "Left Midfielder", "Right Midfielder", "Central Attacking Midfielder", "Attacking Midfielder", "Wide Midfielder", "Left Defensive Midfielder", "Right Defensive Midfielder", "Central Defensive Midfielder", "Center Forward", "Left Winger", "Right Winger", "Striker", "Second Striker" };
@@ -99,29 +102,20 @@ void writePlayerData()
     getline(std::cin, ynChoice);
     if (ynChoice == "y" || ynChoice == "Y") {
         playerIsAmbidextrous = true; // Set ambidextrous status to true
+        foot = "R/L";
     }
-    else if (ynChoice == "n" || ynChoice == "N") {
-        playerIsAmbidextrous = false; // Set ambidextrous status to false
-    }
-    else {
-        std::cerr << "Invalid character entered, please try again" << std::endl; // Handle invalid input
-    }
+    else if (ynChoice == "n" || ynChoice == "N") playerIsAmbidextrous = false;
+    else std::cerr << "Invalid character entered, please try again" << std::endl; // Handle invalid input
 
     // If the player is not ambidextrous, determine their dominant foot
     if (!playerIsAmbidextrous) {
         std::cout << "Is the player right footed (y/n)? ";
         getline(std::cin, ynChoice);
-        if (ynChoice == "y" || "Y") {
-            rightFoot = true; // Set right footed status to true
-            leftFoot = false; // Set left footed status to false
-        }
-        else if (ynChoice == "n" || "N") {
-            rightFoot = false; // Set right footed status to false
-            leftFoot = true; // Set left footed status to true
-        }
-        else {
-            std::cerr << "Invalid character entered, please try again" << std::endl; // Handle invalid input
-        }
+
+        if (ynChoice == "y" || "Y") foot = "R/l";
+        else if (ynChoice == "n" || "N") foot = "r/L";
+        else std::cerr << "Invalid character entered, please try again" << std::endl; // Handle invalid input
+        
     }
 
     // Prompt the user to enter the player's pace rating
@@ -174,13 +168,14 @@ void writePlayerData()
     std::cin >> aggression;
     std::cin.ignore();
 
-    // Prompt the user to enter the player's long shots rating
-    std::cout << "Enter player's Long Shots (1-100): ";
-    std::cin >> longShots;
-    std::cin.ignore();
-
-    std::vector<int> attributes = {
-        pace, dribbling, passing, defending, shooting, physicality, composure, vision, positioning, aggression, longShots
+    std::map<std::string, int> attributes = {
+        {"pace", pace}, 
+        {"dribbling", dribbling}, 
+        {"passing", passing}, 
+        {"defending", defending}, 
+        {"shooting", shooting}, 
+        {"physicality", physicality}, 
+        {"composure", composure}, {"vision", vision}, {"positioning", positioning}, 
     };
 
     // Prompt the user to enter the player's defensive work rate
@@ -199,67 +194,13 @@ void writePlayerData()
     std::cin.ignore();
 
     // Determine the player's work rate based on defensive and offensive work rates
-    if (defWorkRate == 1) {
-        if (offWorkRate == 1) {
-            workRate = "low/low";
-        }
-        else if (offWorkRate == 2) {
-            workRate = "low/mid";
-        }
-        else if (offWorkRate == 3) {
-            workRate = "low/high";
-        }
-        else {
-            std::cerr << "Invalid Offensive Work Rate number inserted";
-            return;
-        }
-    }
-    else if (defWorkRate == 2) {
-        if (offWorkRate == 1) {
-            workRate = "mid/low";
-        }
-        else if (offWorkRate == 2) {
-            workRate = "mid/mid";
-        }
-        else if (offWorkRate == 3) {
-            workRate = "mid/high";
-        }
-        else {
-            std::cerr << "Invalid Offensive Work Rate number inserted";
-            return;
-        }
-    }
-    else if (defWorkRate == 3) {
-        if (offWorkRate == 1) {
-            workRate = "high/low";
-        }
-        else if (offWorkRate == 2) {
-            workRate = "high/mid";
-        }
-        else if (offWorkRate == 3) {
-            workRate = "high/high";
-        }
-        else {
-            std::cerr << "Invalid Offensive Work Rate number inserted";
-            return;
-        }
-    }
-    else {
-        std::cerr << "Invalid Defensive Work Rate number inserted";
-        return;
-    }
-
-    // Determine the player's training work rate description
-    std::string trainingWR;
-    if (trainingWorkRate == 1) {
-        trainingWR = "Low";
-    }
-    else if (trainingWorkRate == 2) {
-        trainingWR = "Mid";
-    }
-    else if (trainingWorkRate == 3) {
-        trainingWR = "High";
-    }
+    std::map<int, std::string> WRmapping = {
+        {1, "low"}, {2, "mid"}, {3, "high"}
+    };
+    if ((defWorkRate <= 1 || defWorkRate >= 3) && (offWorkRate <= 1 || offWorkRate >= 3))
+        workRate = WRmapping[defWorkRate] + "/" + WRmapping[offWorkRate];
+    else
+        std::cerr << "Invalid Defensive Work Rate number inserted"; return;
 
     // Prompt the user to enter the number of special traits the player has
     std::cout << "Enter how many special traits the player has: ";
@@ -383,9 +324,9 @@ prefroleinput:
     setPiece = (passing * .55) + (composure * .45);
     ballControl = (dribbling * .3) + (composure * .7);
 
-    attributes.push_back(penaltyShoot);
-    attributes.push_back(setPiece);
-    attributes.push_back(ballControl);
+    attributes["penalty"] = penaltyShoot;
+    attributes["set_pieces"] = setPiece;
+    attributes["ball_control"] = ballControl;
 
     // Prompt the user to enter the player's morale
     std::cout << "Enter player's morale: ";
@@ -397,9 +338,8 @@ prefroleinput:
     std::cin >> consistency;
     std::cin.ignore();
 
-    // Prompt the user to enter the player's unselfishness factor
-    std::cout << "Enter the chance of the player to be unselfish in a situation: ";
-    std::cin >> teamPlayer;
+    std::cout << "Scale Player's Ego: ";
+    std::cin >> ego;
     std::cin.ignore();
 
     // Randomly determine the player's stamina based on physicality
@@ -425,46 +365,44 @@ prefroleinput:
 
     // Create a JSON object to store versatility data
     json versatilityJson;
-    for (const auto& [position, score] : positionVersatility) {
-        versatilityJson[position] = score;
-    }
+    for (const auto& [position, score] : positionVersatility) versatilityJson[position] = score;
+
+    json attributesJson;
+    for (const auto& [attribute, rating] : attributes) attributesJson[attribute] = rating;
 
     // Create a JSON object for the new player with all collected and calculated data
     json newPlayer = {
+        // Identification
         {"id", playerID},
         {"name", playerName},
         {"rating", playerRating},
         {"position", playerPosition},
         {"number", playerNumber},
-        {"is_captain", playerIsCaptain},
-        {"is_ambidextrous", playerIsAmbidextrous},
-        {"is_rfooted", rightFoot},
-        {"pace", pace},
-        {"dribbling", dribbling},
-        {"passing", passing},
-        {"shooting", shooting},
-        {"defending", defending},
-        {"physicality", physicality},
-        {"workrate", workRate},
-        {"nationality", playerNationality},
+        {"team", teamID},
+        {"nation", playerNationality},
         {"dob", dateOfBirth},
-        {"ced", contractExpiryDate},
-        {"role", prefferedRole},
+        {"height", playerHeight},
+        {"weight", playerWeight},
+        // Ratings
+        {"attributes", attributesJson},
+        {"ambidextrous", playerIsAmbidextrous},
+        {"foot", foot},
+        {"aggression", aggression},
+        {"stamina", stamina},
+        {"workrate", workRate},
+        {"potential", potentialRating},
+        {"special_traits_amount", specialTraitsNum},
+        {"special_traits", specialTraits},
+        {"training", trainingWorkRate},
+        {"clutch", clutchFactor},
+        {"versatility", versatilityJson},
+        // Contract
         {"value", playerValue},
         {"wage", playerWage},
-        {"composure", composure},
-        {"vision", vision},
-        {"positioning", positioning},
-        {"shooting", longShots},
-        {"defensive_work_rate", defWorkRate},
-        {"offensive_work_rate", offWorkRate},
-        {"id", teamID},
-        {"aggression", aggression},
-        {"penalty", penaltyShoot},
-        {"set_pieces", setPiece},
-        {"ball_control", ballControl},
-        {"stamina", stamina},
-        {"injury_prone", injuryProne},
+        {"ced", contractExpiryDate},
+        {"role", prefferedRole},
+        // Stats
+        {"captain", playerIsCaptain},
         {"appearances", matchesPlayed},
         {"goals", goalsScored},
         {"assists", assists},
@@ -472,17 +410,11 @@ prefroleinput:
         {"tackles", tacklesWon},
         {"shots_on_target", shotsOnTarget},
         {"passing_accuracy", passingAccuracy},
-        {"special_traits_amount", specialTraitsNum},
-        {"special_traits", specialTraits},
-        {"potential", potentialRating},
-        {"training_wr", trainingWorkRate},
-        {"clutch", clutchFactor},
-        {"height", playerHeight},
-        {"weight", playerWeight},
-        {"consistency", consistency},
+        // Game
         {"morale", morale},
-        {"team_player", teamPlayer},
-        {"versatility", versatilityJson}
+        {"ego", ego},
+        {"consistency", consistency},
+        {"injury", injuryProne},
     };
 
     exportPlayerData(newPlayer);
@@ -588,4 +520,58 @@ void displayPlayerData() {
             std::cout << "  No versatility data available." << std::endl;
         }
     }
+}
+
+void writePresetPlayerData()
+{
+    presets::Player player;
+
+    json newPlayer = {
+        // Identification
+        {"id", player.playerID},
+        {"name", player.playerName},
+        {"kit_name", player.kitName},
+        {"rating", player.playerRating},
+        {"position", player.playerPosition},
+        {"number", player.playerNumber},
+        {"team", player.teamID},
+        {"nation", player.playerNationality},
+        {"dob", player.dateOfBirth},
+        {"height", player.playerHeight},
+        {"weight", player.playerWeight},
+        // Ratings
+        {"attributes", player.attributesJson},
+        {"ambidextrous", player.playerIsAmbidextrous},
+        {"foot", player.foot},
+        {"aggression", player.aggression},
+        {"stamina", player.stamina},
+        {"workrate", player.workRate},
+        {"potential", player.potentialRating},
+        {"special_traits_nr", player.specialTraitsNum},
+        {"special_traits", player.specialTraits},
+        {"training", player.trainingWorkRate},
+        {"clutch", player.clutchFactor},
+        {"versatility", player.versatilityJson},
+        // Contract
+        {"value", player.playerValue},
+        {"wage", player.playerWage},
+        {"ced", player.contractExpiryDate},
+        {"role", player.prefferedRole},
+        // Stats
+        {"captain", player.playerIsCaptain},
+        {"appearances", player.matchesPlayed},
+        {"goals", player.goalsScored},
+        {"assists", player.assists},
+        {"clean_sheets", player.cleanSheets},
+        {"tackles", player.tacklesWon},
+        {"shots_on_target", player.shotsOnTarget},
+        {"passing_accuracy", player.passingAccuracy},
+        // Game
+        {"morale", player.morale},
+        {"ego", player.ego},
+        {"consistency", player.consistency},
+        {"injury_prone", player.injury},
+    };
+
+    exportPlayerData(newPlayer);
 }

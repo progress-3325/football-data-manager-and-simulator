@@ -58,6 +58,9 @@ void dataManager() {
         case 5:
             std::cout << "Going Back...\n"; // Inform the user that they are exiting the menu
             return; // Exit the function and return to the previous context
+        case 6:
+            writePresetPlayerData();
+            break;
         default:
             std::cout << "Invalid choice, please try again.\n"; // Handle invalid input
         }
